@@ -3,9 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>NOOBOFFFX | Free Fire Creator</title>
 
 <style>
+
+/* =========================
+   BASIC RESET
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -20,25 +26,124 @@ body {
     overflow-x: hidden;
 }
 
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: #ff174f;
+    filter: blur(180px);
+    opacity: 0.08;
+    border-radius: 50%;
+    top: -150px;
+    left: -150px;
+    animation: backgroundMove 8s infinite alternate ease-in-out;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    background: #ff174f;
+    filter: blur(180px);
+    opacity: 0.06;
+    border-radius: 50%;
+    bottom: -150px;
+    right: -150px;
+    animation: backgroundMove2 10s infinite alternate ease-in-out;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes backgroundMove {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(250px, 200px);
+    }
+}
+
+@keyframes backgroundMove2 {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-200px, -150px);
+    }
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0,0,0,0.9);
+
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(12px);
+
     border-bottom: 1px solid #ff174f;
+
     padding: 18px 8%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     z-index: 1000;
+
+    animation: navSlide 1s ease;
+}
+
+@keyframes navSlide {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
+
     color: #ff174f;
-    text-shadow: 0 0 15px #ff174f;
+
+    text-shadow:
+        0 0 10px #ff174f,
+        0 0 25px #ff174f;
+
+    animation: logoPulse 2s infinite alternate;
+}
+
+@keyframes logoPulse {
+    from {
+        text-shadow: 0 0 8px #ff174f;
+    }
+
+    to {
+        text-shadow:
+            0 0 10px #ff174f,
+            0 0 30px #ff174f,
+            0 0 50px #ff174f;
+    }
 }
 
 nav ul {
@@ -51,6 +156,19 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    position: relative;
+    transition: 0.3s;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -6px;
+    background: #ff174f;
+    box-shadow: 0 0 10px #ff174f;
     transition: 0.3s;
 }
 
@@ -58,61 +176,228 @@ nav ul li a:hover {
     color: #ff174f;
 }
 
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     text-align: center;
+
     padding: 100px 20px 50px;
+
     background:
-        radial-gradient(circle at center, #28000d 0%, #050505 55%);
+        radial-gradient(
+            circle at center,
+            #28000d 0%,
+            #050505 55%
+        );
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating particles */
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    background: #ff174f;
+
+    border-radius: 50%;
+
+    box-shadow:
+        100px 100px #ff174f,
+        200px 300px #ff174f,
+        400px 150px #ff174f,
+        600px 400px #ff174f,
+        800px 200px #ff174f,
+        1000px 500px #ff174f;
+
+    opacity: 0.5;
+
+    animation: particles 8s linear infinite;
+}
+
+@keyframes particles {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    to {
+        transform: translateY(-500px);
+        opacity: 0;
+    }
 }
 
 .hero-content {
     max-width: 900px;
+    position: relative;
+    z-index: 2;
+
+    animation: heroAppear 1.5s ease;
+}
+
+@keyframes heroAppear {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .hero h1 {
     font-size: clamp(55px, 12vw, 130px);
+
     color: #ff174f;
+
     text-shadow:
         0 0 10px #ff174f,
         0 0 30px #ff174f,
         0 0 60px #ff174f;
+
     margin-bottom: 10px;
+
+    animation: titleGlow 2s infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        transform: scale(1);
+        text-shadow:
+            0 0 10px #ff174f,
+            0 0 25px #ff174f;
+    }
+
+    to {
+        transform: scale(1.03);
+        text-shadow:
+            0 0 15px #ff174f,
+            0 0 40px #ff174f,
+            0 0 70px #ff174f;
+    }
 }
 
 .hero h2 {
     font-size: 25px;
     letter-spacing: 5px;
     margin-bottom: 20px;
+
+    animation: fadeUp 1s ease 0.3s both;
 }
 
 .hero p {
     color: #ccc;
     font-size: 18px;
     margin-bottom: 30px;
+
+    animation: fadeUp 1s ease 0.6s both;
 }
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   BUTTONS
+========================= */
 
 .btn {
     display: inline-block;
+
     padding: 14px 28px;
+
     background: #ff174f;
+
     color: white;
+
     text-decoration: none;
+
     border-radius: 6px;
+
     font-weight: bold;
-    box-shadow: 0 0 20px rgba(255,23,79,0.5);
+
+    box-shadow:
+        0 0 15px rgba(255, 23, 79, 0.5);
+
     transition: 0.3s;
+
     border: none;
+
     cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+
+    transition: 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 30px #ff174f;
+    transform: translateY(-5px) scale(1.03);
+
+    box-shadow:
+        0 0 15px #ff174f,
+        0 0 35px #ff174f;
 }
+
+/* =========================
+   SECTIONS
+========================= */
 
 section {
     padding: 90px 8%;
@@ -120,61 +405,147 @@ section {
 
 .section-title {
     text-align: center;
+
     font-size: 42px;
+
     margin-bottom: 15px;
+
     color: #ff174f;
-    text-shadow: 0 0 15px rgba(255,23,79,0.6);
+
+    text-shadow:
+        0 0 15px rgba(255,23,79,0.6);
+
+    animation: sectionGlow 2s infinite alternate;
+}
+
+@keyframes sectionGlow {
+    from {
+        text-shadow: 0 0 10px rgba(255,23,79,0.4);
+    }
+
+    to {
+        text-shadow:
+            0 0 15px #ff174f,
+            0 0 30px rgba(255,23,79,0.6);
+    }
 }
 
 .section-subtitle {
     text-align: center;
+
     color: #aaa;
+
     margin-bottom: 45px;
 }
 
-/* STATS */
+/* =========================
+   STATS
+========================= */
 
 .stats {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 20px;
+
     max-width: 1000px;
+
     margin: 0 auto 60px;
 }
 
 .stat-card {
     background: #0e0e0e;
+
     border: 1px solid #ff174f;
+
     padding: 30px 15px;
+
     text-align: center;
+
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255,23,79,0.15);
-    transition: 0.3s;
+
+    box-shadow:
+        0 0 20px rgba(255,23,79,0.15);
+
+    transition: 0.4s;
+
+    animation: statAppear 1s ease both;
+}
+
+.stat-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.stat-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.stat-card:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+@keyframes statAppear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .stat-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 0 30px rgba(255,23,79,0.4);
+    transform: translateY(-10px) scale(1.04);
+
+    box-shadow:
+        0 0 20px #ff174f,
+        0 0 45px rgba(255,23,79,0.3);
 }
 
 .stat-number {
     font-size: 42px;
+
     font-weight: bold;
+
     color: #ff174f;
-    text-shadow: 0 0 15px #ff174f;
+
+    text-shadow:
+        0 0 15px #ff174f;
+
+    animation: numberPulse 2s infinite alternate;
+}
+
+@keyframes numberPulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.06);
+    }
 }
 
 .stat-label {
     margin-top: 8px;
+
     color: #ccc;
+
     font-size: 15px;
 }
 
-/* FREE FIRE */
+/* =========================
+   FREE FIRE
+========================= */
 
 .freefire-intro {
     text-align: center;
+
     margin-bottom: 45px;
+
+    animation: fadeUp 1s ease;
 }
 
 .freefire-intro h3 {
@@ -188,42 +559,100 @@ section {
 
 .game-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 25px;
 }
 
 .card {
     background: #0d0d0d;
+
     border: 1px solid #222;
+
     border-radius: 10px;
+
     padding: 30px;
+
     text-align: center;
-    transition: 0.3s;
+
+    transition: 0.4s;
+
+    animation: cardAppear 1s ease both;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(50px) rotateX(10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
 }
 
 .card:hover {
     border-color: #ff174f;
-    transform: translateY(-8px);
-    box-shadow: 0 0 25px rgba(255,23,79,0.25);
+
+    transform:
+        translateY(-12px)
+        rotateX(2deg);
+
+    box-shadow:
+        0 0 25px rgba(255,23,79,0.35);
 }
 
 .card-icon {
     font-size: 45px;
+
     margin-bottom: 15px;
+
+    display: inline-block;
+
+    animation: iconFloat 2s infinite ease-in-out;
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
 .card h3 {
     font-size: 23px;
+
     margin-bottom: 12px;
 }
 
 .card p {
     color: #aaa;
+
     line-height: 1.6;
+
     margin-bottom: 20px;
 }
 
-/* CLIPS */
+/* =========================
+   CLIPS
+========================= */
 
 .clips {
     background: #080808;
@@ -231,38 +660,107 @@ section {
 
 .clip-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 25px;
 }
 
 .clip-card {
     background: #0d0d0d;
+
     border: 1px solid #222;
+
     border-radius: 10px;
+
     overflow: hidden;
-    transition: 0.3s;
+
+    transition: 0.4s;
+
+    animation: clipAppear 1s ease both;
+}
+
+.clip-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.clip-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.clip-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes clipAppear {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .clip-card:hover {
     border-color: #ff174f;
-    transform: translateY(-6px);
+
+    transform:
+        translateY(-10px)
+        scale(1.02);
+
+    box-shadow:
+        0 0 30px rgba(255,23,79,0.3);
 }
 
 .clip-video {
     width: 100%;
+
     height: 350px;
+
     object-fit: cover;
+
     background: black;
+
+    transition: 0.4s;
+}
+
+.clip-card:hover .clip-video {
+    transform: scale(1.02);
 }
 
 .clip-placeholder {
     height: 350px;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     background:
-        radial-gradient(circle, #26000d, #080808);
+        radial-gradient(
+            circle,
+            #26000d,
+            #080808
+        );
+
     font-size: 45px;
+
+    animation: placeholderGlow 3s infinite alternate;
+}
+
+@keyframes placeholderGlow {
+    from {
+        box-shadow: inset 0 0 10px rgba(255,23,79,0.1);
+    }
+
+    to {
+        box-shadow:
+            inset 0 0 40px rgba(255,23,79,0.25);
+    }
 }
 
 .clip-info {
@@ -271,61 +769,90 @@ section {
 
 .clip-info h3 {
     color: #ff174f;
+
     margin-bottom: 10px;
 }
 
 .clip-info p {
     color: #aaa;
+
     margin-bottom: 15px;
 }
 
-/* TIKTOK */
+/* =========================
+   TIKTOK
+========================= */
 
 .tiktok {
     text-align: center;
+
     background:
-        radial-gradient(circle at center, #25000c 0%, #050505 60%);
+        radial-gradient(
+            circle at center,
+            #25000c 0%,
+            #050505 60%
+        );
 }
 
 .tiktok h2 {
     font-size: 50px;
+
     margin-bottom: 15px;
+
+    animation: titleGlow 2s infinite alternate;
 }
 
 .tiktok p {
     color: #aaa;
+
     margin-bottom: 30px;
 }
 
-/* ABOUT */
+/* =========================
+   ABOUT
+========================= */
 
 .about {
     text-align: center;
+
     max-width: 900px;
+
     margin: auto;
 }
 
 .about p {
     color: #aaa;
+
     line-height: 1.8;
+
     font-size: 17px;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     text-align: center;
+
     padding: 30px 20px;
+
     background: #000;
+
     border-top: 1px solid #222;
+
     color: #777;
 }
 
 footer span {
     color: #ff174f;
+
+    text-shadow: 0 0 10px #ff174f;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 800px) {
 
@@ -361,6 +888,7 @@ footer span {
 
     .hero h2 {
         font-size: 18px;
+
         letter-spacing: 3px;
     }
 
@@ -380,33 +908,84 @@ footer span {
     .clip-placeholder {
         height: 400px;
     }
+
 }
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
 <nav>
-    <div class="logo">NOOBOFFFX</div>
+
+    <div class="logo">
+        NOOBOFFFX
+    </div>
 
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#freefire">Free Fire</a></li>
-        <li><a href="#clips">Clips</a></li>
-        <li><a href="#tiktok">TikTok</a></li>
-        <li><a href="#about">About</a></li>
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#freefire">Free Fire</a>
+        </li>
+
+        <li>
+            <a href="#clips">Clips</a>
+        </li>
+
+        <li>
+            <a href="#tiktok">TikTok</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
     </ul>
+
 </nav>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero" id="home">
+
     <div class="hero-content">
 
-        <h1>NOOBOFFFX</h1>
+        <h1>
+            NOOBOFFFX
+        </h1>
 
-        <h2>FREE FIRE CREATOR</h2>
+        <h2>
+            FREE FIRE CREATOR
+        </h2>
 
         <p>
             GAMING • CLIPS • HIGHLIGHTS • RANKED GRIND
@@ -421,13 +1000,19 @@ footer span {
         </a>
 
     </div>
+
 </section>
 
 
-<!-- FREE FIRE SECTION -->
+<!-- =========================
+     FREE FIRE ZONE
+========================= -->
+
 <section id="freefire">
 
-    <h2 class="section-title">FREE FIRE ZONE</h2>
+    <h2 class="section-title">
+        FREE FIRE ZONE
+    </h2>
 
     <p class="section-subtitle">
         WELCOME TO MY BATTLEGROUND 🔥
@@ -435,21 +1020,45 @@ footer span {
 
 
     <!-- TIKTOK STATS -->
+
     <div class="stats">
 
         <div class="stat-card">
-            <div class="stat-number">780</div>
-            <div class="stat-label">FOLLOWERS</div>
+
+            <div class="stat-number">
+                780
+            </div>
+
+            <div class="stat-label">
+                FOLLOWERS
+            </div>
+
         </div>
 
-        <div class="stat-card">
-            <div class="stat-number">8,588</div>
-            <div class="stat-label">TOTAL LIKES</div>
-        </div>
 
         <div class="stat-card">
-            <div class="stat-number">10</div>
-            <div class="stat-label">VIDEOS</div>
+
+            <div class="stat-number">
+                8,588
+            </div>
+
+            <div class="stat-label">
+                TOTAL LIKES
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-number">
+                10
+            </div>
+
+            <div class="stat-label">
+                VIDEOS
+            </div>
+
         </div>
 
     </div>
@@ -457,11 +1066,13 @@ footer span {
 
     <div class="freefire-intro">
 
-        <h3>WELCOME TO MY BATTLEGROUND</h3>
+        <h3>
+            WELCOME TO MY BATTLEGROUND
+        </h3>
 
         <p>
-            This is where I share my Free Fire gameplay, clutch moments,
-            headshots and ranked highlights.
+            This is where I share my Free Fire gameplay,
+            clutch moments, headshots and ranked highlights.
         </p>
 
     </div>
@@ -469,13 +1080,22 @@ footer span {
 
     <div class="game-grid">
 
-        <div class="card">
-            <div class="card-icon">🎯</div>
 
-            <h3>HEADSHOT ZONE</h3>
+        <!-- HEADSHOT -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                🎯
+            </div>
+
+            <h3>
+                HEADSHOT ZONE
+            </h3>
 
             <p>
-                Clean shots, fast reactions and crazy Free Fire moments.
+                Clean shots, fast reactions and crazy
+                Free Fire moments.
             </p>
 
             <a
@@ -485,16 +1105,25 @@ footer span {
             >
                 WATCH
             </a>
+
         </div>
 
 
-        <div class="card">
-            <div class="card-icon">🏆</div>
+        <!-- RANKED -->
 
-            <h3>RANKED GRIND</h3>
+        <div class="card">
+
+            <div class="card-icon">
+                🏆
+            </div>
+
+            <h3>
+                RANKED GRIND
+            </h3>
 
             <p>
-                Pushing ranks and chasing those legendary Booyahs.
+                Pushing ranks and chasing those
+                legendary Booyahs.
             </p>
 
             <a
@@ -504,16 +1133,25 @@ footer span {
             >
                 WATCH
             </a>
+
         </div>
 
 
-        <div class="card">
-            <div class="card-icon">💥</div>
+        <!-- CLUTCH -->
 
-            <h3>CLUTCH MOMENTS</h3>
+        <div class="card">
+
+            <div class="card-icon">
+                💥
+            </div>
+
+            <h3>
+                CLUTCH MOMENTS
+            </h3>
 
             <p>
-                When the pressure is high and the comeback begins.
+                When the pressure is high and
+                the comeback begins.
             </p>
 
             <a
@@ -523,6 +1161,7 @@ footer span {
             >
                 WATCH
             </a>
+
         </div>
 
     </div>
@@ -530,10 +1169,15 @@ footer span {
 </section>
 
 
-<!-- CLIPS -->
+<!-- =========================
+     CLIPS
+========================= -->
+
 <section class="clips" id="clips">
 
-    <h2 class="section-title">MY CLIPS</h2>
+    <h2 class="section-title">
+        MY CLIPS
+    </h2>
 
     <p class="section-subtitle">
         SOME OF MY LATEST FREE FIRE CONTENT 🔥
@@ -544,6 +1188,7 @@ footer span {
 
 
         <!-- REAL VIDEO -->
+
         <div class="clip-card">
 
             <video
@@ -565,7 +1210,9 @@ footer span {
 
             <div class="clip-info">
 
-                <h3>🔥 BIG COMEBACK</h3>
+                <h3>
+                    🔥 BIG COMEBACK
+                </h3>
 
                 <p>
                     One of my latest Free Fire gaming clips.
@@ -584,7 +1231,8 @@ footer span {
         </div>
 
 
-        <!-- PLACEHOLDER CLIP -->
+        <!-- CRAZY PLAY -->
+
         <div class="clip-card">
 
             <div class="clip-placeholder">
@@ -593,7 +1241,9 @@ footer span {
 
             <div class="clip-info">
 
-                <h3>⚡ CRAZY PLAY</h3>
+                <h3>
+                    ⚡ CRAZY PLAY
+                </h3>
 
                 <p>
                     More crazy gameplay coming soon.
@@ -612,7 +1262,8 @@ footer span {
         </div>
 
 
-        <!-- PLACEHOLDER CLIP -->
+        <!-- EPIC HIGHLIGHT -->
+
         <div class="clip-card">
 
             <div class="clip-placeholder">
@@ -621,7 +1272,9 @@ footer span {
 
             <div class="clip-info">
 
-                <h3>🏆 EPIC HIGHLIGHT</h3>
+                <h3>
+                    🏆 EPIC HIGHLIGHT
+                </h3>
 
                 <p>
                     Check out more highlights on my TikTok.
@@ -644,10 +1297,15 @@ footer span {
 </section>
 
 
-<!-- TIKTOK -->
+<!-- =========================
+     TIKTOK
+========================= -->
+
 <section class="tiktok" id="tiktok">
 
-    <h2>FOLLOW NOOBOFFFX</h2>
+    <h2>
+        FOLLOW NOOBOFFFX
+    </h2>
 
     <p>
         Join the journey and watch my latest Free Fire content.
@@ -664,17 +1322,22 @@ footer span {
 </section>
 
 
-<!-- ABOUT -->
+<!-- =========================
+     ABOUT
+========================= -->
+
 <section id="about">
 
     <div class="about">
 
-        <h2 class="section-title">ABOUT NOOBOFFFX</h2>
+        <h2 class="section-title">
+            ABOUT NOOBOFFFX
+        </h2>
 
         <p>
             Welcome to the official NOOBOFFFX gaming website.
-            I'm a Free Fire creator sharing gaming clips, highlights,
-            ranked gameplay and crazy moments.
+            I'm a Free Fire creator sharing gaming clips,
+            highlights, ranked gameplay and crazy moments.
             Follow my TikTok to stay updated with my latest content.
         </p>
 
@@ -683,14 +1346,20 @@ footer span {
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
     <p>
-        © 2026 <span>NOOBOFFFX</span> • Free Fire Creator
+        © 2026
+        <span>NOOBOFFFX</span>
+        • Free Fire Creator
     </p>
 
 </footer>
+
 
 </body>
 </html>
