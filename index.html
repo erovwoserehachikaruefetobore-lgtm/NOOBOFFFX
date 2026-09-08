@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>NOOBOFFFX | Gaming</title>
 
 <style>
@@ -20,11 +20,13 @@ body{
   color:white;
 }
 
+/* NAVIGATION */
 nav{
   position:fixed;
   top:0;
+  left:0;
   width:100%;
-  padding:20px 8%;
+  padding:18px 7%;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -43,7 +45,7 @@ nav{
 nav a{
   color:white;
   text-decoration:none;
-  margin-left:20px;
+  margin-left:18px;
   font-weight:bold;
 }
 
@@ -51,6 +53,7 @@ nav a:hover{
   color:#ff004c;
 }
 
+/* HOME */
 .hero{
   min-height:100vh;
   display:flex;
@@ -58,8 +61,8 @@ nav a:hover{
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:100px 20px 40px;
-  background:radial-gradient(circle,#300010 0%,#080808 60%);
+  padding:120px 20px 50px;
+  background:radial-gradient(circle,#350010 0%,#080808 60%);
 }
 
 .hero h1{
@@ -72,7 +75,7 @@ nav a:hover{
 .hero p{
   font-size:20px;
   color:#ccc;
-  max-width:600px;
+  line-height:1.6;
   margin-bottom:30px;
 }
 
@@ -89,12 +92,13 @@ nav a:hover{
 }
 
 .button:hover{
-  transform:scale(1.08);
+  transform:scale(1.07);
   box-shadow:0 0 35px rgba(255,0,76,.8);
 }
 
+/* SECTIONS */
 section{
-  padding:90px 8%;
+  padding:90px 7%;
 }
 
 .title{
@@ -107,31 +111,32 @@ section{
   color:#ff004c;
 }
 
+/* CARDS */
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:25px;
 }
 
 .card{
   background:#111;
-  border:1px solid #252525;
-  padding:25px;
-  border-radius:15px;
+  border:1px solid #292929;
+  padding:20px;
+  border-radius:16px;
   text-align:center;
   transition:.3s;
 }
 
 .card:hover{
-  transform:translateY(-8px);
+  transform:translateY(-7px);
   border-color:#ff004c;
   box-shadow:0 0 25px rgba(255,0,76,.25);
 }
 
 .card h3{
   color:#ff004c;
-  margin:15px 0;
   font-size:24px;
+  margin:18px 0 12px;
 }
 
 .card p{
@@ -140,17 +145,36 @@ section{
   margin-bottom:20px;
 }
 
-.clip{
+/* PLACEHOLDERS */
+.placeholder{
   height:180px;
-  background:linear-gradient(135deg,#24000c,#111);
-  border-radius:12px;
   display:flex;
   justify-content:center;
   align-items:center;
-  font-size:55px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#26000d,#111);
+  border:1px solid #333;
+  font-size:60px;
+}
+
+/* REAL VIDEO */
+.video-container{
+  width:100%;
+  background:#000;
+  border-radius:12px;
+  overflow:hidden;
   border:1px solid #333;
 }
 
+.video-container video{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:500px;
+  background:#000;
+}
+
+/* TIKTOK */
 .tiktok{
   text-align:center;
   background:#0d0d0d;
@@ -158,10 +182,11 @@ section{
 
 .tiktok p{
   color:#bbb;
-  margin-bottom:30px;
   font-size:18px;
+  margin-bottom:30px;
 }
 
+/* ABOUT */
 .about{
   max-width:800px;
   margin:auto;
@@ -171,6 +196,7 @@ section{
   line-height:1.8;
 }
 
+/* FOOTER */
 footer{
   padding:30px;
   text-align:center;
@@ -183,10 +209,11 @@ footer span{
   color:#ff004c;
 }
 
+/* MOBILE */
 @media(max-width:700px){
 
   nav{
-    padding:15px 5%;
+    padding:15px 4%;
     flex-direction:column;
     gap:12px;
   }
@@ -197,7 +224,7 @@ footer span{
   }
 
   .hero{
-    padding-top:140px;
+    padding-top:150px;
   }
 
   .hero h1{
@@ -213,13 +240,11 @@ footer span{
   }
 }
 </style>
-
 </head>
 
 <body>
 
 <!-- NAVIGATION -->
-
 <nav>
 
   <div class="logo">NOOBOFFFX</div>
@@ -234,8 +259,8 @@ footer span{
 
 </nav>
 
-<!-- HOME -->
 
+<!-- HOME -->
 <section class="hero" id="home">
 
   <h1>NOOBOFFFX</h1>
@@ -246,69 +271,64 @@ footer span{
     Welcome to my official gaming website.
   </p>
 
-<a
- class="button"
- href="https://www.tiktok.com/@noobofffx"
- target="_blank"
- rel="noopener noreferrer">
-FOLLOW ME ON TIKTOK </a>
+  <a
+    class="button"
+    href="https://www.tiktok.com/@noobofffx"
+    target="_blank"
+    rel="noopener noreferrer">
+    FOLLOW ME ON TIKTOK
+  </a>
 
 </section>
 
-<!-- GAMING -->
 
+<!-- GAMING -->
 <section id="gaming">
 
-  <h2 class="title">MY <span>GAMING</span></h2>
+  <h2 class="title">
+    MY <span>GAMING</span>
+  </h2>
 
   <div class="cards">
 
-```
-<div class="card">
+    <div class="card">
+      <div class="placeholder">🎮</div>
 
-  <div class="clip">🎮</div>
+      <h3>Gaming</h3>
 
-  <h3>Gaming</h3>
-
-  <p>
-    Gaming content, matches, challenges and more.
-  </p>
-
-</div>
+      <p>
+        Gaming content, matches, challenges and more.
+      </p>
+    </div>
 
 
-<div class="card">
+    <div class="card">
+      <div class="placeholder">🔥</div>
 
-  <div class="clip">🔥</div>
+      <h3>Highlights</h3>
 
-  <h3>Highlights</h3>
-
-  <p>
-    My best and most exciting gaming moments.
-  </p>
-
-</div>
+      <p>
+        My best and most exciting gaming moments.
+      </p>
+    </div>
 
 
-<div class="card">
+    <div class="card">
+      <div class="placeholder">🏆</div>
 
-  <div class="clip">🏆</div>
+      <h3>Achievements</h3>
 
-  <h3>Achievements</h3>
-
-  <p>
-    My biggest gaming achievements and milestones.
-  </p>
-
-</div>
-```
+      <p>
+        My biggest gaming achievements and milestones.
+      </p>
+    </div>
 
   </div>
 
 </section>
 
-<!-- CLIPS & HIGHLIGHTS -->
 
+<!-- CLIPS -->
 <section id="clips">
 
   <h2 class="title">
@@ -317,76 +337,91 @@ FOLLOW ME ON TIKTOK </a>
 
   <div class="cards">
 
-```
-<div class="card">
 
-  <div class="clip">🔥</div>
+    <!-- REAL CLIP -->
+    <div class="card">
 
-  <h3>Best Moment</h3>
+      <div class="video-container">
 
-  <p>
-    Check out my best gaming moments on TikTok.
-  </p>
+        <video
+          controls
+          playsinline
+          preload="metadata">
 
-  <a
-    class="button"
-    href="https://www.tiktok.com/@noobofffx"
-    target="_blank"
-    rel="noopener noreferrer">
-    WATCH CLIP
-  </a>
+          <source src="./clip1.mp4" type="video/mp4">
 
-</div>
+          Your browser does not support video playback.
 
+        </video>
 
-<div class="card">
+      </div>
 
-  <div class="clip">⚡</div>
+      <h3>🔥 BIG COMEBACK</h3>
 
-  <h3>Crazy Play</h3>
+      <p>
+        One of my latest gaming clips.
+      </p>
 
-  <p>
-    Watch my crazy gaming plays and moments.
-  </p>
+      <a
+        class="button"
+        href="https://www.tiktok.com/@noobofffx"
+        target="_blank"
+        rel="noopener noreferrer">
+        WATCH MY TIKTOK
+      </a>
 
-  <a
-    class="button"
-    href="https://www.tiktok.com/@noobofffx"
-    target="_blank"
-    rel="noopener noreferrer">
-    WATCH CLIP
-  </a>
-
-</div>
+    </div>
 
 
-<div class="card">
+    <!-- COMING SOON -->
+    <div class="card">
 
-  <div class="clip">🏆</div>
+      <div class="placeholder">⚡</div>
 
-  <h3>Epic Highlight</h3>
+      <h3>CRAZY PLAY</h3>
 
-  <p>
-    Find my latest gaming highlights on TikTok.
-  </p>
+      <p>
+        More crazy gaming clips coming soon.
+      </p>
 
-  <a
-    class="button"
-    href="https://www.tiktok.com/@noobofffx"
-    target="_blank"
-    rel="noopener noreferrer">
-    WATCH CLIP
-  </a>
+      <a
+        class="button"
+        href="https://www.tiktok.com/@noobofffx"
+        target="_blank"
+        rel="noopener noreferrer">
+        VISIT TIKTOK
+      </a>
 
-</div>
-```
+    </div>
+
+
+    <!-- COMING SOON -->
+    <div class="card">
+
+      <div class="placeholder">🏆</div>
+
+      <h3>EPIC HIGHLIGHT</h3>
+
+      <p>
+        More gaming highlights coming soon.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.tiktok.com/@noobofffx"
+        target="_blank"
+        rel="noopener noreferrer">
+        VISIT TIKTOK
+      </a>
+
+    </div>
 
   </div>
 
 </section>
 
-<!-- TIKTOK -->
 
+<!-- TIKTOK -->
 <section class="tiktok" id="tiktok">
 
   <h2 class="title">
@@ -398,17 +433,18 @@ FOLLOW ME ON TIKTOK </a>
     clips and highlights.
   </p>
 
-<a
- class="button"
- href="https://www.tiktok.com/@noobofffx"
- target="_blank"
- rel="noopener noreferrer">
-VISIT MY TIKTOK </a>
+  <a
+    class="button"
+    href="https://www.tiktok.com/@noobofffx"
+    target="_blank"
+    rel="noopener noreferrer">
+    VISIT MY TIKTOK
+  </a>
 
 </section>
 
-<!-- ABOUT -->
 
+<!-- ABOUT -->
 <section id="about">
 
   <h2 class="title">
@@ -417,23 +453,21 @@ VISIT MY TIKTOK </a>
 
   <div class="about">
 
-```
-<p>
-  Welcome to the official NOOBOFFFX website.
-  Here you can find my gaming clips, highlights,
-  achievements and latest content.
-</p>
-```
+    <p>
+      Welcome to the official NOOBOFFFX website.
+      Here you can find my gaming clips, highlights,
+      achievements and latest content.
+    </p>
 
   </div>
 
 </section>
 
-<!-- FOOTER -->
 
+<!-- FOOTER -->
 <footer>
 
-© 2026 <span>NOOBOFFFX</span> — All Rights Reserved.
+  © 2026 <span>NOOBOFFFX</span> — All Rights Reserved.
 
 </footer>
 
