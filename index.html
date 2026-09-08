@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NOOBOFFFX | Gaming</title>
+<title>NOOBOFFFX | Free Fire</title>
 
 <style>
 *{
@@ -16,11 +16,11 @@
 
 body{
   font-family:Arial,sans-serif;
-  background:#080808;
+  background:#070707;
   color:white;
 }
 
-/* NAVIGATION */
+/* NAVBAR */
 nav{
   position:fixed;
   top:0;
@@ -30,15 +30,15 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(0,0,0,.95);
+  background:rgba(0,0,0,.96);
+  border-bottom:1px solid #292929;
   z-index:1000;
-  border-bottom:1px solid #222;
 }
 
 .logo{
+  color:#ff174f;
   font-size:25px;
   font-weight:bold;
-  color:#ff004c;
   letter-spacing:2px;
 }
 
@@ -50,90 +50,164 @@ nav a{
 }
 
 nav a:hover{
-  color:#ff004c;
+  color:#ff174f;
 }
 
-/* HOME */
+/* HERO */
 .hero{
   min-height:100vh;
+  padding:140px 20px 60px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:120px 20px 50px;
-  background:radial-gradient(circle,#350010 0%,#080808 60%);
+  background:
+    radial-gradient(circle at center,#3b0012 0%,#120006 35%,#070707 70%);
 }
 
 .hero h1{
-  font-size:clamp(50px,10vw,110px);
-  color:#ff004c;
-  text-shadow:0 0 30px #ff004c;
+  font-size:clamp(55px,11vw,120px);
+  color:#ff174f;
+  text-shadow:0 0 35px #ff174f;
+  margin-bottom:15px;
+}
+
+.hero h2{
+  font-size:30px;
   margin-bottom:20px;
 }
 
 .hero p{
-  font-size:20px;
-  color:#ccc;
-  line-height:1.6;
+  max-width:650px;
+  color:#bbb;
+  font-size:19px;
+  line-height:1.7;
   margin-bottom:30px;
 }
 
 .button{
   display:inline-block;
   padding:14px 28px;
-  background:#ff004c;
+  background:#ff174f;
   color:white;
   text-decoration:none;
   border-radius:30px;
   font-weight:bold;
+  box-shadow:0 0 20px rgba(255,23,79,.5);
   transition:.3s;
-  box-shadow:0 0 20px rgba(255,0,76,.5);
 }
 
 .button:hover{
   transform:scale(1.07);
-  box-shadow:0 0 35px rgba(255,0,76,.8);
+  box-shadow:0 0 35px rgba(255,23,79,.8);
 }
 
+/* SECTIONS */
 section{
   padding:90px 7%;
 }
 
 .title{
   text-align:center;
-  font-size:40px;
+  font-size:42px;
   margin-bottom:50px;
 }
 
 .title span{
-  color:#ff004c;
+  color:#ff174f;
+}
+
+/* FREE FIRE */
+.freefire{
+  background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.95)),
+    radial-gradient(circle at top,#5b001c,#080808 65%);
+}
+
+.ff-intro{
+  max-width:850px;
+  margin:0 auto 50px;
+  text-align:center;
+}
+
+.ff-intro h3{
+  font-size:30px;
+  color:#ff174f;
+  margin-bottom:15px;
+}
+
+.ff-intro p{
+  color:#aaa;
+  font-size:18px;
+  line-height:1.7;
+}
+
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  max-width:1000px;
+  margin:0 auto 60px;
+}
+
+.stat{
+  background:#111;
+  border:1px solid #292929;
+  border-radius:15px;
+  padding:25px 15px;
+  text-align:center;
+}
+
+.stat .number{
+  display:block;
+  font-size:35px;
+  color:#ff174f;
+  font-weight:bold;
+}
+
+.stat p{
+  color:#aaa;
+  margin-top:8px;
 }
 
 /* CARDS */
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:25px;
 }
 
 .card{
   background:#111;
   border:1px solid #292929;
-  padding:20px;
   border-radius:16px;
+  padding:22px;
   text-align:center;
   transition:.3s;
 }
 
 .card:hover{
-  transform:translateY(-7px);
-  border-color:#ff004c;
-  box-shadow:0 0 25px rgba(255,0,76,.25);
+  transform:translateY(-8px);
+  border-color:#ff174f;
+  box-shadow:0 0 25px rgba(255,23,79,.2);
+}
+
+.card-icon{
+  height:170px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:65px;
+  background:
+    radial-gradient(circle,#3d0012,#111);
+  border:1px solid #333;
 }
 
 .card h3{
-  color:#ff004c;
+  color:#ff174f;
   font-size:24px;
   margin:18px 0 12px;
 }
@@ -144,39 +218,30 @@ section{
   margin-bottom:20px;
 }
 
-/* PLACEHOLDER */
-.placeholder{
-  height:180px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  border-radius:12px;
-  background:linear-gradient(135deg,#26000d,#111);
-  border:1px solid #333;
-  font-size:60px;
-}
-
 /* VIDEO */
-.video-container{
-  width:100%;
+.video-box{
   background:#000;
   border-radius:12px;
   overflow:hidden;
   border:1px solid #333;
 }
 
-.video-container video{
-  display:block;
+.video-box video{
   width:100%;
-  height:auto;
-  max-height:500px;
+  display:block;
   background:#000;
+}
+
+/* CLIPS */
+.clips{
+  background:#0c0c0c;
 }
 
 /* TIKTOK */
 .tiktok{
   text-align:center;
-  background:#0d0d0d;
+  background:
+    radial-gradient(circle,#28000c,#080808 65%);
 }
 
 .tiktok p{
@@ -190,7 +255,7 @@ section{
   max-width:800px;
   margin:auto;
   text-align:center;
-  color:#bbb;
+  color:#aaa;
   font-size:18px;
   line-height:1.8;
 }
@@ -199,43 +264,54 @@ section{
 footer{
   padding:30px;
   text-align:center;
-  background:#050505;
+  background:#030303;
   color:#777;
   border-top:1px solid #222;
 }
 
 footer span{
-  color:#ff004c;
+  color:#ff174f;
 }
 
 /* MOBILE */
-@media(max-width:700px){
+@media(max-width:800px){
 
   nav{
-    padding:15px 4%;
     flex-direction:column;
     gap:12px;
+    padding:15px 4%;
   }
 
   nav a{
-    margin-left:6px;
     font-size:12px;
+    margin-left:6px;
   }
 
   .hero{
-    padding-top:150px;
+    padding-top:160px;
   }
 
-  .hero h1{
-    font-size:55px;
-  }
-
-  section{
-    padding:70px 5%;
+  .stats{
+    grid-template-columns:repeat(2,1fr);
   }
 
   .title{
     font-size:32px;
+  }
+}
+
+@media(max-width:450px){
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero h1{
+    font-size:52px;
+  }
+
+  .hero h2{
+    font-size:24px;
   }
 }
 </style>
@@ -246,177 +322,245 @@ footer span{
 <!-- NAVIGATION -->
 <nav>
 
-  <div class="logo">NOOBOFFFX</div>
+<div class="logo">NOOBOFFFX</div>
 
-  <div>
-    <a href="#home">Home</a>
-    <a href="#gaming">Gaming</a>
-    <a href="#clips">Clips</a>
-    <a href="#tiktok">TikTok</a>
-    <a href="#about">About</a>
-  </div>
+<div>
+<a href="#home">Home</a>
+<a href="#freefire">Free Fire</a>
+<a href="#clips">Clips</a>
+<a href="#tiktok">TikTok</a>
+<a href="#about">About</a>
+</div>
 
 </nav>
 
 
-<!-- HOME -->
+<!-- HERO -->
 <section class="hero" id="home">
 
-  <h1>NOOBOFFFX</h1>
+<h1>NOOBOFFFX</h1>
 
-  <p>
-    Gaming • Clips • Highlights
-    <br>
-    Welcome to my official gaming website.
-  </p>
+<h2>FREE FIRE CREATOR</h2>
 
-  <a
-    class="button"
-    href="https://www.tiktok.com/@noobofffx"
-    target="_blank"
-    rel="noopener noreferrer">
-    FOLLOW ME ON TIKTOK
-  </a>
+<p>
+Welcome to the official NOOBOFFFX gaming zone.
+Watch my Free Fire gameplay, clips, highlights and
+latest content.
+</p>
 
-</section>
-
-
-<!-- GAMING -->
-<section id="gaming">
-
-  <h2 class="title">
-    MY <span>GAMING</span>
-  </h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="placeholder">🎮</div>
-
-      <h3>Gaming</h3>
-
-      <p>
-        Gaming content, matches, challenges and more.
-      </p>
-    </div>
-
-
-    <div class="card">
-      <div class="placeholder">🔥</div>
-
-      <h3>Highlights</h3>
-
-      <p>
-        My best and most exciting gaming moments.
-      </p>
-    </div>
-
-
-    <div class="card">
-      <div class="placeholder">🏆</div>
-
-      <h3>Achievements</h3>
-
-      <p>
-        My biggest gaming achievements and milestones.
-      </p>
-    </div>
-
-  </div>
+<a
+class="button"
+href="https://www.tiktok.com/@noobofffx"
+target="_blank"
+rel="noopener noreferrer">
+FOLLOW @NOOBOFFFX
+</a>
 
 </section>
 
 
-<!-- CLIPS & HIGHLIGHTS -->
-<section id="clips">
+<!-- FREE FIRE -->
+<section class="freefire" id="freefire">
 
-  <h2 class="title">
-    CLIPS & <span>HIGHLIGHTS</span>
-  </h2>
+<h2 class="title">
+FREE FIRE <span>ZONE</span>
+</h2>
 
-  <div class="cards">
+<div class="ff-intro">
 
-    <!-- YOUR REAL VIDEO -->
-    <div class="card">
+<h3>🔥 WELCOME TO MY BATTLEGROUND</h3>
 
-      <div class="video-container">
+<p>
+This is where the action happens. From intense ranked
+matches to crazy plays and clutch moments, this section
+is dedicated to my Free Fire content.
+</p>
 
-        <video
-          controls
-          playsinline
-          preload="metadata">
-
-          <source
-            src="./BIG%20COME%20BACK%20NEW%20PHONK-Monocole.mp4"
-            type="video/mp4">
-
-          Your browser does not support video playback.
-
-        </video>
-
-      </div>
-
-      <h3>🔥 BIG COMEBACK</h3>
-
-      <p>
-        One of my latest gaming clips.
-      </p>
-
-      <a
-        class="button"
-        href="https://www.tiktok.com/@noobofffx"
-        target="_blank"
-        rel="noopener noreferrer">
-        WATCH MY TIKTOK
-      </a>
-
-    </div>
+</div>
 
 
-    <!-- SECOND CLIP -->
-    <div class="card">
+<!-- STATS -->
+<div class="stats">
 
-      <div class="placeholder">⚡</div>
+<div class="stat">
+<span class="number">🔥</span>
+<p>Clutch Plays</p>
+</div>
 
-      <h3>CRAZY PLAY</h3>
+<div class="stat">
+<span class="number">🎯</span>
+<p>Headshots</p>
+</div>
 
-      <p>
-        More crazy gaming clips coming soon.
-      </p>
+<div class="stat">
+<span class="number">🏆</span>
+<p>Ranked</p>
+</div>
 
-      <a
-        class="button"
-        href="https://www.tiktok.com/@noobofffx"
-        target="_blank"
-        rel="noopener noreferrer">
-        VISIT TIKTOK
-      </a>
+<div class="stat">
+<span class="number">💀</span>
+<p>Booyahs</p>
+</div>
 
-    </div>
+</div>
 
 
-    <!-- THIRD CLIP -->
-    <div class="card">
+<!-- FREE FIRE CARDS -->
+<div class="cards">
 
-      <div class="placeholder">🏆</div>
+<div class="card">
 
-      <h3>EPIC HIGHLIGHT</h3>
+<div class="card-icon">🎯</div>
 
-      <p>
-        More gaming highlights coming soon.
-      </p>
+<h3>HEADSHOT ZONE</h3>
 
-      <a
-        class="button"
-        href="https://www.tiktok.com/@noobofffx"
-        target="_blank"
-        rel="noopener noreferrer">
-        VISIT TIKTOK
-      </a>
+<p>
+Watch my best aim moments and headshot gameplay.
+</p>
 
-    </div>
+<a
+class="button"
+href="https://www.tiktok.com/@noobofffx"
+target="_blank">
+WATCH
+</a>
 
-  </div>
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🏆</div>
+
+<h3>RANKED GRIND</h3>
+
+<p>
+Follow my ranked journey and competitive Free Fire
+gameplay.
+</p>
+
+<a
+class="button"
+href="https://www.tiktok.com/@noobofffx"
+target="_blank">
+WATCH
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">💥</div>
+
+<h3>CLUTCH MOMENTS</h3>
+
+<p>
+Crazy situations, comebacks and clutch plays.
+</p>
+
+<a
+class="button"
+href="https://www.tiktok.com/@noobofffx"
+target="_blank">
+WATCH
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CLIPS -->
+<section class="clips" id="clips">
+
+<h2 class="title">
+MY <span>CLIPS</span>
+</h2>
+
+<div class="cards">
+
+
+<!-- REAL CLIP -->
+<div class="card">
+
+<div class="video-box">
+
+<video controls playsinline preload="metadata">
+
+<source
+src="./BIG%20COME%20BACK%20NEW%20PHONK-Monocole.mp4"
+type="video/mp4">
+
+Your browser does not support video playback.
+
+</video>
+
+</div>
+
+<h3>🔥 BIG COMEBACK</h3>
+
+<p>
+One of my latest Free Fire gaming clips.
+</p>
+
+<a
+class="button"
+href="https://www.tiktok.com/@noobofffx"
+target="_blank"
+rel="noopener noreferrer">
+WATCH MORE
+</a>
+
+</div>
+
+
+<!-- SECOND -->
+<div class="card">
+
+<div class="card-icon">⚡</div>
+
+<h3>CRAZY PLAY</h3>
+
+<p>
+More insane Free Fire moments coming soon.
+</p>
+
+<a
+class="button"
+href="https://www.tiktok.com/@noobofffx"
+target="_blank"
+rel="noopener noreferrer">
+VISIT TIKTOK
+</a>
+
+</div>
+
+
+<!-- THIRD -->
+<div class="card">
+
+<div class="card-icon">🏆</div>
+
+<h3>EPIC HIGHLIGHT</h3>
+
+<p>
+More Free Fire highlights will be added here.
+</p>
+
+<a
+class="button"
+href="https://www.tiktok.com/@noobofffx"
+target="_blank"
+rel="noopener noreferrer">
+VISIT TIKTOK
+</a>
+
+</div>
+
+</div>
 
 </section>
 
@@ -424,22 +568,22 @@ footer span{
 <!-- TIKTOK -->
 <section class="tiktok" id="tiktok">
 
-  <h2 class="title">
-    MY <span>TIKTOK</span>
-  </h2>
+<h2 class="title">
+FOLLOW <span>NOOBOFFFX</span>
+</h2>
 
-  <p>
-    Follow @noobofffx for my latest gaming content,
-    clips and highlights.
-  </p>
+<p>
+Follow my main TikTok account for new Free Fire clips,
+gameplay and highlights.
+</p>
 
-  <a
-    class="button"
-    href="https://www.tiktok.com/@noobofffx"
-    target="_blank"
-    rel="noopener noreferrer">
-    VISIT MY TIKTOK
-  </a>
+<a
+class="button"
+href="https://www.tiktok.com/@noobofffx"
+target="_blank"
+rel="noopener noreferrer">
+VISIT MY TIKTOK
+</a>
 
 </section>
 
@@ -447,19 +591,22 @@ footer span{
 <!-- ABOUT -->
 <section id="about">
 
-  <h2 class="title">
-    ABOUT <span>NOOBOFFFX</span>
-  </h2>
+<h2 class="title">
+ABOUT <span>NOOBOFFFX</span>
+</h2>
 
-  <div class="about">
+<div class="about">
 
-    <p>
-      Welcome to the official NOOBOFFFX website.
-      Here you can find my gaming clips, highlights,
-      achievements and latest content.
-    </p>
+<p>
+NOOBOFFFX is a gaming creator focused on Free Fire
+gameplay, clips, highlights, clutch moments and
+entertainment.
 
-  </div>
+Follow the journey and check out the latest content
+on TikTok.
+</p>
+
+</div>
 
 </section>
 
@@ -467,7 +614,7 @@ footer span{
 <!-- FOOTER -->
 <footer>
 
-  © 2026 <span>NOOBOFFFX</span> — All Rights Reserved.
+© 2026 <span>NOOBOFFFX</span> — Free Fire Gaming
 
 </footer>
 
