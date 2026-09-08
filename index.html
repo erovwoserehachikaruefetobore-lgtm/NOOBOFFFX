@@ -2,20 +2,25 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- Makes the website automatically fit phones, tablets and computers -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NOOBOFFFX | Free Fire Creator</title>
 
 <style>
 
-/* =========================
-   BASIC RESET
-========================= */
+/* =====================================================
+   RESET
+===================================================== */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
@@ -24,91 +29,112 @@ body {
     background: #050505;
     color: white;
     overflow-x: hidden;
+    line-height: 1.5;
 }
 
-/* =========================
+
+/* =====================================================
    ANIMATED BACKGROUND
-========================= */
+===================================================== */
 
 body::before {
     content: "";
     position: fixed;
-    width: 500px;
-    height: 500px;
+
+    width: 450px;
+    height: 450px;
+
     background: #ff174f;
+    border-radius: 50%;
+
     filter: blur(180px);
     opacity: 0.08;
-    border-radius: 50%;
-    top: -150px;
-    left: -150px;
-    animation: backgroundMove 8s infinite alternate ease-in-out;
-    pointer-events: none;
+
+    top: -180px;
+    left: -180px;
+
     z-index: -1;
+
+    animation: moveGlow 10s infinite alternate ease-in-out;
 }
 
 body::after {
     content: "";
     position: fixed;
+
     width: 450px;
     height: 450px;
+
     background: #ff174f;
+    border-radius: 50%;
+
     filter: blur(180px);
     opacity: 0.06;
-    border-radius: 50%;
-    bottom: -150px;
-    right: -150px;
-    animation: backgroundMove2 10s infinite alternate ease-in-out;
-    pointer-events: none;
+
+    bottom: -180px;
+    right: -180px;
+
     z-index: -1;
+
+    animation: moveGlow2 12s infinite alternate ease-in-out;
 }
 
-@keyframes backgroundMove {
+@keyframes moveGlow {
+
     from {
         transform: translate(0, 0);
     }
 
     to {
-        transform: translate(250px, 200px);
+        transform: translate(250px, 250px);
     }
+
 }
 
-@keyframes backgroundMove2 {
+@keyframes moveGlow2 {
+
     from {
         transform: translate(0, 0);
     }
 
     to {
-        transform: translate(-200px, -150px);
+        transform: translate(-250px, -200px);
     }
+
 }
 
-/* =========================
+
+/* =====================================================
    NAVIGATION
-========================= */
+===================================================== */
 
 nav {
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
 
-    background: rgba(0, 0, 0, 0.88);
-    backdrop-filter: blur(12px);
-
-    border-bottom: 1px solid #ff174f;
-
-    padding: 18px 8%;
+    padding: 16px clamp(15px, 6vw, 80px);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+    background: rgba(0, 0, 0, 0.88);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255, 23, 79, 0.6);
+
     z-index: 1000;
 
-    animation: navSlide 1s ease;
+    animation: navDown 0.8s ease;
 }
 
-@keyframes navSlide {
+@keyframes navDown {
+
     from {
         transform: translateY(-100%);
         opacity: 0;
@@ -118,11 +144,13 @@ nav {
         transform: translateY(0);
         opacity: 1;
     }
+
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: clamp(18px, 3vw, 26px);
+
+    font-weight: 900;
 
     color: #ff174f;
 
@@ -130,10 +158,13 @@ nav {
         0 0 10px #ff174f,
         0 0 25px #ff174f;
 
-    animation: logoPulse 2s infinite alternate;
+    white-space: nowrap;
+
+    animation: logoGlow 2s infinite alternate;
 }
 
-@keyframes logoPulse {
+@keyframes logoGlow {
+
     from {
         text-shadow: 0 0 8px #ff174f;
     }
@@ -141,123 +172,103 @@ nav {
     to {
         text-shadow:
             0 0 10px #ff174f,
-            0 0 30px #ff174f,
-            0 0 50px #ff174f;
+            0 0 25px #ff174f,
+            0 0 45px #ff174f;
     }
+
 }
 
 nav ul {
     list-style: none;
+
     display: flex;
-    gap: 25px;
+
+    gap: clamp(10px, 2.5vw, 28px);
 }
 
-nav ul li a {
+nav a {
     color: white;
+
     text-decoration: none;
+
+    font-size: clamp(11px, 1.5vw, 15px);
+
     font-weight: bold;
-    position: relative;
+
     transition: 0.3s;
+
+    position: relative;
 }
 
-nav ul li a::after {
+nav a::after {
     content: "";
+
     position: absolute;
-    width: 0;
-    height: 2px;
+
     left: 0;
     bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
     background: #ff174f;
+
     box-shadow: 0 0 10px #ff174f;
+
     transition: 0.3s;
 }
 
-nav ul li a:hover {
+nav a:hover {
     color: #ff174f;
 }
 
-nav ul li a:hover::after {
+nav a:hover::after {
     width: 100%;
 }
 
-/* =========================
+
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero {
+
     min-height: 100vh;
 
+    padding:
+        clamp(110px, 15vh, 160px)
+        clamp(15px, 6vw, 80px)
+        60px;
+
     display: flex;
+
     justify-content: center;
     align-items: center;
 
     text-align: center;
 
-    padding: 100px 20px 50px;
-
     background:
         radial-gradient(
             circle at center,
-            #28000d 0%,
-            #050505 55%
+            #30000f 0%,
+            #090909 45%,
+            #050505 75%
         );
 
     position: relative;
+
     overflow: hidden;
 }
 
-/* Floating particles */
-
-.hero::before,
-.hero::after {
-    content: "";
-    position: absolute;
-
-    width: 5px;
-    height: 5px;
-
-    background: #ff174f;
-
-    border-radius: 50%;
-
-    box-shadow:
-        100px 100px #ff174f,
-        200px 300px #ff174f,
-        400px 150px #ff174f,
-        600px 400px #ff174f,
-        800px 200px #ff174f,
-        1000px 500px #ff174f;
-
-    opacity: 0.5;
-
-    animation: particles 8s linear infinite;
-}
-
-@keyframes particles {
-    from {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 0.7;
-    }
-
-    to {
-        transform: translateY(-500px);
-        opacity: 0;
-    }
-}
-
 .hero-content {
-    max-width: 900px;
-    position: relative;
-    z-index: 2;
 
-    animation: heroAppear 1.5s ease;
+    width: min(100%, 1000px);
+
+    animation: heroEnter 1.2s ease;
 }
 
-@keyframes heroAppear {
+@keyframes heroEnter {
+
     from {
         opacity: 0;
         transform: translateY(50px) scale(0.95);
@@ -267,76 +278,86 @@ nav ul li a:hover::after {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
+
 }
 
 .hero h1 {
-    font-size: clamp(55px, 12vw, 130px);
+
+    font-size:
+        clamp(48px, 13vw, 130px);
+
+    line-height: 1;
 
     color: #ff174f;
+
+    font-weight: 900;
+
+    letter-spacing: clamp(1px, 1vw, 8px);
 
     text-shadow:
         0 0 10px #ff174f,
         0 0 30px #ff174f,
-        0 0 60px #ff174f;
+        0 0 70px #ff174f;
 
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 
-    animation: titleGlow 2s infinite alternate;
+    animation: titlePulse 2.5s infinite alternate;
 }
 
-@keyframes titleGlow {
+@keyframes titlePulse {
+
     from {
         transform: scale(1);
-        text-shadow:
-            0 0 10px #ff174f,
-            0 0 25px #ff174f;
     }
 
     to {
         transform: scale(1.03);
-        text-shadow:
-            0 0 15px #ff174f,
-            0 0 40px #ff174f,
-            0 0 70px #ff174f;
     }
+
 }
 
 .hero h2 {
-    font-size: 25px;
-    letter-spacing: 5px;
-    margin-bottom: 20px;
+
+    font-size:
+        clamp(17px, 3vw, 28px);
+
+    letter-spacing:
+        clamp(2px, 1vw, 6px);
+
+    margin-bottom: 18px;
 
     animation: fadeUp 1s ease 0.3s both;
 }
 
 .hero p {
+
     color: #ccc;
-    font-size: 18px;
-    margin-bottom: 30px;
+
+    font-size:
+        clamp(13px, 2vw, 19px);
+
+    margin-bottom: 32px;
 
     animation: fadeUp 1s ease 0.6s both;
 }
 
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* =========================
-   BUTTONS
-========================= */
+/* =====================================================
+   BUTTON
+===================================================== */
 
 .btn {
-    display: inline-block;
 
-    padding: 14px 28px;
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 48px;
+
+    padding:
+        12px
+        clamp(18px, 4vw, 30px);
 
     background: #ff174f;
 
@@ -344,18 +365,19 @@ nav ul li a:hover::after {
 
     text-decoration: none;
 
-    border-radius: 6px;
+    border-radius: 7px;
 
     font-weight: bold;
+
+    font-size:
+        clamp(12px, 2vw, 15px);
 
     box-shadow:
         0 0 15px rgba(255, 23, 79, 0.5);
 
-    transition: 0.3s;
-
-    border: none;
-
-    cursor: pointer;
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
 
     position: relative;
 
@@ -363,54 +385,65 @@ nav ul li a:hover::after {
 }
 
 .btn::before {
+
     content: "";
 
     position: absolute;
 
     top: 0;
-    left: -100%;
+    left: -120%;
 
     width: 100%;
     height: 100%;
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.35),
-        transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.4),
+            transparent
+        );
 
     transition: 0.5s;
 }
 
 .btn:hover::before {
-    left: 100%;
+    left: 120%;
 }
 
 .btn:hover {
-    transform: translateY(-5px) scale(1.03);
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
 
     box-shadow:
-        0 0 15px #ff174f,
-        0 0 35px #ff174f;
+        0 0 20px #ff174f,
+        0 0 40px rgba(255,23,79,0.6);
 }
 
-/* =========================
-   SECTIONS
-========================= */
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
 
 section {
-    padding: 90px 8%;
+
+    padding:
+        clamp(65px, 9vw, 100px)
+        clamp(15px, 6vw, 80px);
 }
 
 .section-title {
+
     text-align: center;
 
-    font-size: 42px;
-
-    margin-bottom: 15px;
+    font-size:
+        clamp(30px, 5vw, 46px);
 
     color: #ff174f;
+
+    margin-bottom: 12px;
 
     text-shadow:
         0 0 15px rgba(255,23,79,0.6);
@@ -419,58 +452,75 @@ section {
 }
 
 @keyframes sectionGlow {
+
     from {
-        text-shadow: 0 0 10px rgba(255,23,79,0.4);
+        text-shadow: 0 0 10px #ff174f;
     }
 
     to {
         text-shadow:
-            0 0 15px #ff174f,
-            0 0 30px rgba(255,23,79,0.6);
+            0 0 20px #ff174f,
+            0 0 40px rgba(255,23,79,0.5);
     }
+
 }
 
 .section-subtitle {
+
     text-align: center;
 
-    color: #aaa;
+    color: #999;
+
+    font-size:
+        clamp(13px, 2vw, 17px);
 
     margin-bottom: 45px;
 }
 
-/* =========================
+
+/* =====================================================
    STATS
-========================= */
+===================================================== */
 
 .stats {
-    display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 20px;
-
-    max-width: 1000px;
+    width: min(100%, 1000px);
 
     margin: 0 auto 60px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: clamp(12px, 3vw, 25px);
 }
 
 .stat-card {
-    background: #0e0e0e;
+
+    background:
+        linear-gradient(
+            145deg,
+            #121212,
+            #080808
+        );
 
     border: 1px solid #ff174f;
 
-    padding: 30px 15px;
+    border-radius: 12px;
+
+    padding:
+        clamp(20px, 4vw, 35px)
+        10px;
 
     text-align: center;
 
-    border-radius: 10px;
-
     box-shadow:
-        0 0 20px rgba(255,23,79,0.15);
+        0 0 20px rgba(255,23,79,0.12);
 
     transition: 0.4s;
 
-    animation: statAppear 1s ease both;
+    animation: statIn 0.8s ease both;
 }
 
 .stat-card:nth-child(1) {
@@ -485,7 +535,8 @@ section {
     animation-delay: 0.5s;
 }
 
-@keyframes statAppear {
+@keyframes statIn {
+
     from {
         opacity: 0;
         transform: translateY(40px);
@@ -495,52 +546,67 @@ section {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 .stat-card:hover {
-    transform: translateY(-10px) scale(1.04);
+
+    transform:
+        translateY(-8px)
+        scale(1.03);
 
     box-shadow:
-        0 0 20px #ff174f,
-        0 0 45px rgba(255,23,79,0.3);
+        0 0 25px rgba(255,23,79,0.5);
 }
 
 .stat-number {
-    font-size: 42px;
 
-    font-weight: bold;
+    font-size:
+        clamp(30px, 6vw, 46px);
+
+    font-weight: 900;
 
     color: #ff174f;
 
     text-shadow:
         0 0 15px #ff174f;
 
-    animation: numberPulse 2s infinite alternate;
+    animation: numberGlow 2s infinite alternate;
 }
 
-@keyframes numberPulse {
+@keyframes numberGlow {
+
     from {
-        transform: scale(1);
+        text-shadow: 0 0 8px #ff174f;
     }
 
     to {
-        transform: scale(1.06);
+        text-shadow:
+            0 0 15px #ff174f,
+            0 0 30px #ff174f;
     }
+
 }
 
 .stat-label {
-    margin-top: 8px;
 
-    color: #ccc;
+    margin-top: 6px;
 
-    font-size: 15px;
+    color: #bbb;
+
+    font-size:
+        clamp(11px, 2vw, 15px);
+
+    font-weight: bold;
 }
 
-/* =========================
-   FREE FIRE
-========================= */
+
+/* =====================================================
+   FREE FIRE CARDS
+===================================================== */
 
 .freefire-intro {
+
     text-align: center;
 
     margin-bottom: 45px;
@@ -549,84 +615,109 @@ section {
 }
 
 .freefire-intro h3 {
-    font-size: 28px;
+
+    font-size:
+        clamp(21px, 4vw, 30px);
+
     margin-bottom: 10px;
 }
 
 .freefire-intro p {
-    color: #aaa;
+
+    color: #999;
+
+    font-size:
+        clamp(13px, 2vw, 17px);
 }
 
 .game-grid {
+
+    width: min(100%, 1200px);
+
+    margin: auto;
+
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
-    gap: 25px;
+    gap: clamp(15px, 3vw, 28px);
 }
 
 .card {
-    background: #0d0d0d;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111,
+            #080808
+        );
 
     border: 1px solid #222;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
-    padding: 30px;
+    padding:
+        clamp(22px, 4vw, 35px);
 
     text-align: center;
 
     transition: 0.4s;
 
-    animation: cardAppear 1s ease both;
+    animation: cardIn 0.9s ease both;
 }
 
 .card:nth-child(1) {
-    animation-delay: 0.2s;
+    animation-delay: 0.1s;
 }
 
 .card:nth-child(2) {
-    animation-delay: 0.4s;
+    animation-delay: 0.3s;
 }
 
 .card:nth-child(3) {
-    animation-delay: 0.6s;
+    animation-delay: 0.5s;
 }
 
-@keyframes cardAppear {
+@keyframes cardIn {
+
     from {
         opacity: 0;
-        transform: translateY(50px) rotateX(10deg);
+        transform: translateY(50px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0) rotateX(0);
+        transform: translateY(0);
     }
+
 }
 
 .card:hover {
+
     border-color: #ff174f;
 
     transform:
-        translateY(-12px)
-        rotateX(2deg);
+        translateY(-10px);
 
     box-shadow:
-        0 0 25px rgba(255,23,79,0.35);
+        0 0 30px rgba(255,23,79,0.35);
 }
 
 .card-icon {
-    font-size: 45px;
+
+    font-size:
+        clamp(35px, 6vw, 50px);
 
     margin-bottom: 15px;
 
     display: inline-block;
 
-    animation: iconFloat 2s infinite ease-in-out;
+    animation: floatIcon 2s infinite ease-in-out;
 }
 
-@keyframes iconFloat {
+@keyframes floatIcon {
+
     0%, 100% {
         transform: translateY(0);
     }
@@ -634,105 +725,131 @@ section {
     50% {
         transform: translateY(-8px);
     }
+
 }
 
 .card h3 {
-    font-size: 23px;
+
+    font-size:
+        clamp(18px, 3vw, 24px);
 
     margin-bottom: 12px;
 }
 
 .card p {
-    color: #aaa;
 
-    line-height: 1.6;
+    color: #999;
 
     margin-bottom: 20px;
+
+    font-size:
+        clamp(13px, 2vw, 16px);
 }
 
-/* =========================
+
+/* =====================================================
    CLIPS
-========================= */
+===================================================== */
 
 .clips {
+
     background: #080808;
 }
 
 .clip-grid {
+
+    width: min(100%, 1200px);
+
+    margin: auto;
+
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
-    gap: 25px;
+    gap: clamp(15px, 3vw, 28px);
 }
 
 .clip-card {
+
     background: #0d0d0d;
 
     border: 1px solid #222;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
     overflow: hidden;
 
     transition: 0.4s;
 
-    animation: clipAppear 1s ease both;
+    animation: clipIn 1s ease both;
 }
 
 .clip-card:nth-child(1) {
-    animation-delay: 0.2s;
+    animation-delay: 0.1s;
 }
 
 .clip-card:nth-child(2) {
-    animation-delay: 0.4s;
+    animation-delay: 0.3s;
 }
 
 .clip-card:nth-child(3) {
-    animation-delay: 0.6s;
+    animation-delay: 0.5s;
 }
 
-@keyframes clipAppear {
+@keyframes clipIn {
+
     from {
         opacity: 0;
-        transform: translateY(60px) scale(0.95);
+        transform: translateY(50px) scale(0.95);
     }
 
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
+
 }
 
 .clip-card:hover {
+
     border-color: #ff174f;
 
     transform:
-        translateY(-10px)
-        scale(1.02);
+        translateY(-8px);
 
     box-shadow:
         0 0 30px rgba(255,23,79,0.3);
 }
 
+
+/* =====================================================
+   VIDEO
+===================================================== */
+
 .clip-video {
+
+    display: block;
+
     width: 100%;
 
-    height: 350px;
+    height:
+        clamp(300px, 40vw, 430px);
 
     object-fit: cover;
 
     background: black;
-
-    transition: 0.4s;
 }
 
-.clip-card:hover .clip-video {
-    transform: scale(1.02);
-}
+
+/* =====================================================
+   PLACEHOLDER CLIPS
+===================================================== */
 
 .clip-placeholder {
-    height: 350px;
+
+    height:
+        clamp(300px, 40vw, 430px);
 
     display: flex;
 
@@ -740,190 +857,378 @@ section {
 
     align-items: center;
 
+    font-size:
+        clamp(40px, 8vw, 60px);
+
     background:
         radial-gradient(
             circle,
-            #26000d,
+            #28000e,
             #080808
         );
 
-    font-size: 45px;
-
-    animation: placeholderGlow 3s infinite alternate;
+    animation: placeholderPulse 3s infinite alternate;
 }
 
-@keyframes placeholderGlow {
+@keyframes placeholderPulse {
+
     from {
-        box-shadow: inset 0 0 10px rgba(255,23,79,0.1);
+        box-shadow:
+            inset 0 0 10px rgba(255,23,79,0.1);
     }
 
     to {
         box-shadow:
-            inset 0 0 40px rgba(255,23,79,0.25);
+            inset 0 0 50px rgba(255,23,79,0.3);
     }
+
 }
 
 .clip-info {
-    padding: 20px;
+
+    padding:
+        clamp(18px, 3vw, 25px);
 }
 
 .clip-info h3 {
+
     color: #ff174f;
 
-    margin-bottom: 10px;
+    font-size:
+        clamp(17px, 3vw, 22px);
+
+    margin-bottom: 8px;
 }
 
 .clip-info p {
-    color: #aaa;
+
+    color: #999;
+
+    font-size:
+        clamp(13px, 2vw, 16px);
 
     margin-bottom: 15px;
 }
 
-/* =========================
+
+/* =====================================================
    TIKTOK
-========================= */
+===================================================== */
 
 .tiktok {
+
     text-align: center;
 
     background:
         radial-gradient(
             circle at center,
-            #25000c 0%,
-            #050505 60%
+            #25000c,
+            #050505 65%
         );
 }
 
 .tiktok h2 {
-    font-size: 50px;
+
+    font-size:
+        clamp(30px, 7vw, 60px);
 
     margin-bottom: 15px;
 
-    animation: titleGlow 2s infinite alternate;
+    color: white;
+
+    text-shadow:
+        0 0 15px #ff174f;
+
+    animation: titlePulse 2.5s infinite alternate;
 }
 
 .tiktok p {
-    color: #aaa;
+
+    color: #999;
 
     margin-bottom: 30px;
+
+    font-size:
+        clamp(13px, 2vw, 17px);
 }
 
-/* =========================
+
+/* =====================================================
    ABOUT
-========================= */
+===================================================== */
 
 .about {
-    text-align: center;
 
-    max-width: 900px;
+    width: min(100%, 900px);
 
     margin: auto;
+
+    text-align: center;
 }
 
 .about p {
-    color: #aaa;
+
+    color: #999;
+
+    font-size:
+        clamp(14px, 2vw, 18px);
 
     line-height: 1.8;
-
-    font-size: 17px;
 }
 
-/* =========================
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer {
+
     text-align: center;
 
-    padding: 30px 20px;
+    padding: 28px 15px;
 
     background: #000;
 
     border-top: 1px solid #222;
 
     color: #777;
+
+    font-size:
+        clamp(12px, 2vw, 15px);
 }
 
 footer span {
+
     color: #ff174f;
 
-    text-shadow: 0 0 10px #ff174f;
+    text-shadow:
+        0 0 10px #ff174f;
 }
 
-/* =========================
-   MOBILE
-========================= */
 
-@media (max-width: 800px) {
+/* =====================================================
+   GENERAL ANIMATION
+===================================================== */
 
-    nav {
-        padding: 15px 5%;
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
     }
 
-    .logo {
-        font-size: 19px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   TABLETS
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .game-grid,
+    .clip-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =====================================================
+   PHONES
+===================================================== */
+
+@media (max-width: 600px) {
+
+    nav {
+
+        padding:
+            13px 12px;
+
     }
 
     nav ul {
-        gap: 10px;
+
+        gap: 8px;
+
     }
 
-    nav ul li a {
-        font-size: 12px;
+    nav a {
+
+        font-size: 10px;
+
     }
 
-    section {
-        padding: 70px 5%;
+    .logo {
+
+        font-size: 17px;
+
     }
 
-    .stats,
-    .game-grid,
-    .clip-grid {
-        grid-template-columns: 1fr;
+    .hero {
+
+        min-height: 100svh;
+
+        padding-top: 100px;
+
     }
 
     .hero h1 {
-        font-size: 60px;
+
+        font-size:
+            clamp(42px, 15vw, 75px);
+
     }
 
     .hero h2 {
-        font-size: 18px;
 
-        letter-spacing: 3px;
+        font-size: 15px;
+
     }
 
     .hero p {
-        font-size: 15px;
+
+        font-size: 12px;
+
     }
 
-    .section-title {
-        font-size: 32px;
+    .stats {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 8px;
+
     }
 
-    .tiktok h2 {
-        font-size: 35px;
+    .stat-card {
+
+        padding:
+            18px 5px;
+
+    }
+
+    .stat-number {
+
+        font-size: 25px;
+
+    }
+
+    .stat-label {
+
+        font-size: 9px;
+
+    }
+
+    .game-grid,
+    .clip-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .card {
+
+        padding: 25px 18px;
+
     }
 
     .clip-video,
     .clip-placeholder {
-        height: 400px;
+
+        height:
+            min(125vw, 500px);
+
+    }
+
+    .btn {
+
+        width: auto;
+
+        max-width: 100%;
+
     }
 
 }
 
-/* =========================
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 380px) {
+
+    nav ul {
+
+        gap: 5px;
+
+    }
+
+    nav a {
+
+        font-size: 9px;
+
+    }
+
+    .logo {
+
+        font-size: 15px;
+
+    }
+
+    .hero h1 {
+
+        font-size: 40px;
+
+    }
+
+    .stats {
+
+        gap: 5px;
+
+    }
+
+    .stat-number {
+
+        font-size: 22px;
+
+    }
+
+    .stat-label {
+
+        font-size: 8px;
+
+    }
+
+}
+
+
+/* =====================================================
    REDUCED MOTION
-========================= */
+===================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
     *,
     *::before,
     *::after {
+
         animation-duration: 0.01ms !important;
+
         animation-iteration-count: 1 !important;
+
         scroll-behavior: auto !important;
+
         transition-duration: 0.01ms !important;
+
     }
 
 }
@@ -931,12 +1236,13 @@ footer span {
 </style>
 </head>
 
+
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      NAVIGATION
-========================= -->
+===================================================== -->
 
 <nav>
 
@@ -971,9 +1277,9 @@ footer span {
 </nav>
 
 
-<!-- =========================
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <section class="hero" id="home">
 
@@ -992,9 +1298,10 @@ footer span {
         </p>
 
         <a
+            class="btn"
             href="https://www.tiktok.com/@noobofffx"
             target="_blank"
-            class="btn"
+            rel="noopener"
         >
             FOLLOW @NOOBOFFFX
         </a>
@@ -1004,9 +1311,9 @@ footer span {
 </section>
 
 
-<!-- =========================
-     FREE FIRE ZONE
-========================= -->
+<!-- =====================================================
+     FREE FIRE
+===================================================== -->
 
 <section id="freefire">
 
@@ -1099,9 +1406,10 @@ footer span {
             </p>
 
             <a
+                class="btn"
                 href="https://www.tiktok.com/@noobofffx"
                 target="_blank"
-                class="btn"
+                rel="noopener"
             >
                 WATCH
             </a>
@@ -1127,9 +1435,10 @@ footer span {
             </p>
 
             <a
+                class="btn"
                 href="https://www.tiktok.com/@noobofffx"
                 target="_blank"
-                class="btn"
+                rel="noopener"
             >
                 WATCH
             </a>
@@ -1155,9 +1464,10 @@ footer span {
             </p>
 
             <a
+                class="btn"
                 href="https://www.tiktok.com/@noobofffx"
                 target="_blank"
-                class="btn"
+                rel="noopener"
             >
                 WATCH
             </a>
@@ -1169,9 +1479,9 @@ footer span {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CLIPS
-========================= -->
+===================================================== -->
 
 <section class="clips" id="clips">
 
@@ -1187,7 +1497,9 @@ footer span {
     <div class="clip-grid">
 
 
-        <!-- REAL VIDEO -->
+        <!-- =================================================
+             YOUR REAL VIDEO
+        ================================================== -->
 
         <div class="clip-card">
 
@@ -1219,9 +1531,10 @@ footer span {
                 </p>
 
                 <a
+                    class="btn"
                     href="https://www.tiktok.com/@noobofffx"
                     target="_blank"
-                    class="btn"
+                    rel="noopener"
                 >
                     WATCH ON TIKTOK
                 </a>
@@ -1231,7 +1544,9 @@ footer span {
         </div>
 
 
-        <!-- CRAZY PLAY -->
+        <!-- =================================================
+             SECOND CLIP
+        ================================================== -->
 
         <div class="clip-card">
 
@@ -1250,9 +1565,10 @@ footer span {
                 </p>
 
                 <a
+                    class="btn"
                     href="https://www.tiktok.com/@noobofffx"
                     target="_blank"
-                    class="btn"
+                    rel="noopener"
                 >
                     WATCH ON TIKTOK
                 </a>
@@ -1262,7 +1578,9 @@ footer span {
         </div>
 
 
-        <!-- EPIC HIGHLIGHT -->
+        <!-- =================================================
+             THIRD CLIP
+        ================================================== -->
 
         <div class="clip-card">
 
@@ -1281,9 +1599,10 @@ footer span {
                 </p>
 
                 <a
+                    class="btn"
                     href="https://www.tiktok.com/@noobofffx"
                     target="_blank"
-                    class="btn"
+                    rel="noopener"
                 >
                     WATCH ON TIKTOK
                 </a>
@@ -1297,9 +1616,9 @@ footer span {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      TIKTOK
-========================= -->
+===================================================== -->
 
 <section class="tiktok" id="tiktok">
 
@@ -1312,9 +1631,10 @@ footer span {
     </p>
 
     <a
+        class="btn"
         href="https://www.tiktok.com/@noobofffx"
         target="_blank"
-        class="btn"
+        rel="noopener"
     >
         🎵 FOLLOW ME ON TIKTOK
     </a>
@@ -1322,9 +1642,9 @@ footer span {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      ABOUT
-========================= -->
+===================================================== -->
 
 <section id="about">
 
@@ -1346,9 +1666,9 @@ footer span {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
