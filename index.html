@@ -109,14 +109,14 @@ section{
 
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:25px;
 }
 
 .card{
   background:#111;
   border:1px solid #252525;
-  padding:20px;
+  padding:25px;
   border-radius:15px;
   text-align:center;
   transition:.3s;
@@ -140,15 +140,7 @@ section{
   margin-bottom:20px;
 }
 
-.clip-video{
-  width:100%;
-  border-radius:12px;
-  display:block;
-  background:#000;
-  border:1px solid #333;
-}
-
-.placeholder{
+.clip{
   height:180px;
   background:linear-gradient(135deg,#24000c,#111);
   border-radius:12px;
@@ -226,7 +218,10 @@ footer span{
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
+
   <div class="logo">NOOBOFFFX</div>
 
   <div>
@@ -236,7 +231,10 @@ footer span{
     <a href="#tiktok">TikTok</a>
     <a href="#about">About</a>
   </div>
+
 </nav>
+
+<!-- HOME -->
 
 <section class="hero" id="home">
 
@@ -257,6 +255,8 @@ FOLLOW ME ON TIKTOK </a>
 
 </section>
 
+<!-- GAMING -->
+
 <section id="gaming">
 
   <h2 class="title">MY <span>GAMING</span></h2>
@@ -265,33 +265,49 @@ FOLLOW ME ON TIKTOK </a>
 
 ```
 <div class="card">
-  <div class="placeholder">🎮</div>
+
+  <div class="clip">🎮</div>
+
   <h3>Gaming</h3>
+
   <p>
     Gaming content, matches, challenges and more.
   </p>
+
 </div>
 
+
 <div class="card">
-  <div class="placeholder">🔥</div>
+
+  <div class="clip">🔥</div>
+
   <h3>Highlights</h3>
+
   <p>
     My best and most exciting gaming moments.
   </p>
+
 </div>
 
+
 <div class="card">
-  <div class="placeholder">🏆</div>
+
+  <div class="clip">🏆</div>
+
   <h3>Achievements</h3>
+
   <p>
     My biggest gaming achievements and milestones.
   </p>
+
 </div>
 ```
 
   </div>
 
 </section>
+
+<!-- CLIPS & HIGHLIGHTS -->
 
 <section id="clips">
 
@@ -302,21 +318,14 @@ FOLLOW ME ON TIKTOK </a>
   <div class="cards">
 
 ```
-<!-- YOUR REAL CLIP -->
 <div class="card">
 
-  <video
-    class="clip-video"
-    controls
-    preload="metadata">
-    <source src="clip1.mp4" type="video/mp4">
-    Your browser does not support video playback.
-  </video>
+  <div class="clip">🔥</div>
 
-  <h3>🔥 BIG COMEBACK</h3>
+  <h3>Best Moment</h3>
 
   <p>
-    Check out one of my latest gaming clips.
+    Check out my best gaming moments on TikTok.
   </p>
 
   <a
@@ -324,21 +333,20 @@ FOLLOW ME ON TIKTOK </a>
     href="https://www.tiktok.com/@noobofffx"
     target="_blank"
     rel="noopener noreferrer">
-    WATCH ON TIKTOK
+    WATCH CLIP
   </a>
 
 </div>
 
 
-<!-- SECOND CLIP -->
 <div class="card">
 
-  <div class="placeholder">⚡</div>
+  <div class="clip">⚡</div>
 
   <h3>Crazy Play</h3>
 
   <p>
-    More crazy gaming moments coming soon.
+    Watch my crazy gaming plays and moments.
   </p>
 
   <a
@@ -346,21 +354,20 @@ FOLLOW ME ON TIKTOK </a>
     href="https://www.tiktok.com/@noobofffx"
     target="_blank"
     rel="noopener noreferrer">
-    VISIT TIKTOK
+    WATCH CLIP
   </a>
 
 </div>
 
 
-<!-- THIRD CLIP -->
 <div class="card">
 
-  <div class="placeholder">🏆</div>
+  <div class="clip">🏆</div>
 
   <h3>Epic Highlight</h3>
 
   <p>
-    More highlights coming soon.
+    Find my latest gaming highlights on TikTok.
   </p>
 
   <a
@@ -368,7 +375,7 @@ FOLLOW ME ON TIKTOK </a>
     href="https://www.tiktok.com/@noobofffx"
     target="_blank"
     rel="noopener noreferrer">
-    VISIT TIKTOK
+    WATCH CLIP
   </a>
 
 </div>
@@ -377,6 +384,8 @@ FOLLOW ME ON TIKTOK </a>
   </div>
 
 </section>
+
+<!-- TIKTOK -->
 
 <section class="tiktok" id="tiktok">
 
@@ -398,6 +407,8 @@ VISIT MY TIKTOK </a>
 
 </section>
 
+<!-- ABOUT -->
+
 <section id="about">
 
   <h2 class="title">
@@ -417,6 +428,8 @@ VISIT MY TIKTOK </a>
   </div>
 
 </section>
+
+<!-- FOOTER -->
 
 <footer>
 
