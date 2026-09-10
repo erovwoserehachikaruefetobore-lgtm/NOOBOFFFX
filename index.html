@@ -1,1685 +1,1064 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<!-- Makes the website automatically fit phones, tablets and computers -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NOOBOFFFX | Free Fire Creator</title>
+  <title>NOOBOFFFX | Free Fire Creator</title>
 
-<style>
+  <meta
+    name="description"
+    content="NOOBOFFFX - Free Fire gaming clips, highlights, guides, sensitivity settings and creator content."
+  >
 
-/* =====================================================
-   RESET
-===================================================== */
+  <meta
+    name="keywords"
+    content="NOOBOFFFX, Free Fire, Free Fire creator, gaming clips, Free Fire sensitivity, gaming guides"
+  >
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  <meta name="theme-color" content="#ff174f">
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #050505;
-    color: white;
-    overflow-x: hidden;
-    line-height: 1.5;
-}
-
-
-/* =====================================================
-   ANIMATED BACKGROUND
-===================================================== */
-
-body::before {
-    content: "";
-    position: fixed;
-
-    width: 450px;
-    height: 450px;
-
-    background: #ff174f;
-    border-radius: 50%;
-
-    filter: blur(180px);
-    opacity: 0.08;
-
-    top: -180px;
-    left: -180px;
-
-    z-index: -1;
-
-    animation: moveGlow 10s infinite alternate ease-in-out;
-}
-
-body::after {
-    content: "";
-    position: fixed;
-
-    width: 450px;
-    height: 450px;
-
-    background: #ff174f;
-    border-radius: 50%;
-
-    filter: blur(180px);
-    opacity: 0.06;
-
-    bottom: -180px;
-    right: -180px;
-
-    z-index: -1;
-
-    animation: moveGlow2 12s infinite alternate ease-in-out;
-}
-
-@keyframes moveGlow {
-
-    from {
-        transform: translate(0, 0);
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    to {
-        transform: translate(250px, 250px);
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: white;
+      overflow-x: hidden;
     }
 
-}
-
-@keyframes moveGlow2 {
-
-    from {
-        transform: translate(0, 0);
-    }
-
-    to {
-        transform: translate(-250px, -200px);
-    }
-
-}
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-nav {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    padding: 16px clamp(15px, 6vw, 80px);
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    background: rgba(0, 0, 0, 0.88);
-
-    backdrop-filter: blur(15px);
-
-    border-bottom: 1px solid rgba(255, 23, 79, 0.6);
-
-    z-index: 1000;
-
-    animation: navDown 0.8s ease;
-}
-
-@keyframes navDown {
-
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-}
-
-.logo {
-    font-size: clamp(18px, 3vw, 26px);
-
-    font-weight: 900;
-
-    color: #ff174f;
-
-    text-shadow:
-        0 0 10px #ff174f,
-        0 0 25px #ff174f;
-
-    white-space: nowrap;
-
-    animation: logoGlow 2s infinite alternate;
-}
-
-@keyframes logoGlow {
-
-    from {
-        text-shadow: 0 0 8px #ff174f;
-    }
-
-    to {
-        text-shadow:
-            0 0 10px #ff174f,
-            0 0 25px #ff174f,
-            0 0 45px #ff174f;
-    }
-
-}
-
-nav ul {
-    list-style: none;
-
-    display: flex;
-
-    gap: clamp(10px, 2.5vw, 28px);
-}
-
-nav a {
-    color: white;
-
-    text-decoration: none;
-
-    font-size: clamp(11px, 1.5vw, 15px);
-
-    font-weight: bold;
-
-    transition: 0.3s;
-
-    position: relative;
-}
-
-nav a::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: -6px;
-
-    width: 0;
-    height: 2px;
-
-    background: #ff174f;
-
-    box-shadow: 0 0 10px #ff174f;
-
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: #ff174f;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero {
-
-    min-height: 100vh;
-
-    padding:
-        clamp(110px, 15vh, 160px)
-        clamp(15px, 6vw, 80px)
-        60px;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #30000f 0%,
-            #090909 45%,
-            #050505 75%
-        );
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-.hero-content {
-
-    width: min(100%, 1000px);
-
-    animation: heroEnter 1.2s ease;
-}
-
-@keyframes heroEnter {
-
-    from {
-        opacity: 0;
-        transform: translateY(50px) scale(0.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-
-}
-
-.hero h1 {
-
-    font-size:
-        clamp(48px, 13vw, 130px);
-
-    line-height: 1;
-
-    color: #ff174f;
-
-    font-weight: 900;
-
-    letter-spacing: clamp(1px, 1vw, 8px);
-
-    text-shadow:
-        0 0 10px #ff174f,
-        0 0 30px #ff174f,
-        0 0 70px #ff174f;
-
-    margin-bottom: 20px;
-
-    animation: titlePulse 2.5s infinite alternate;
-}
-
-@keyframes titlePulse {
-
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(1.03);
-    }
-
-}
-
-.hero h2 {
-
-    font-size:
-        clamp(17px, 3vw, 28px);
-
-    letter-spacing:
-        clamp(2px, 1vw, 6px);
-
-    margin-bottom: 18px;
-
-    animation: fadeUp 1s ease 0.3s both;
-}
-
-.hero p {
-
-    color: #ccc;
-
-    font-size:
-        clamp(13px, 2vw, 19px);
-
-    margin-bottom: 32px;
-
-    animation: fadeUp 1s ease 0.6s both;
-}
-
-
-/* =====================================================
-   BUTTON
-===================================================== */
-
-.btn {
-
-    display: inline-flex;
-
-    justify-content: center;
-    align-items: center;
-
-    min-height: 48px;
-
-    padding:
-        12px
-        clamp(18px, 4vw, 30px);
-
-    background: #ff174f;
-
-    color: white;
-
-    text-decoration: none;
-
-    border-radius: 7px;
-
-    font-weight: bold;
-
-    font-size:
-        clamp(12px, 2vw, 15px);
-
-    box-shadow:
-        0 0 15px rgba(255, 23, 79, 0.5);
-
-    transition:
-        transform 0.3s,
-        box-shadow 0.3s;
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-.btn::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 100%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,0.4),
-            transparent
-        );
-
-    transition: 0.5s;
-}
-
-.btn:hover::before {
-    left: 120%;
-}
-
-.btn:hover {
-
-    transform:
-        translateY(-4px)
-        scale(1.03);
-
-    box-shadow:
-        0 0 20px #ff174f,
-        0 0 40px rgba(255,23,79,0.6);
-}
-
-
-/* =====================================================
-   GENERAL SECTIONS
-===================================================== */
-
-section {
-
-    padding:
-        clamp(65px, 9vw, 100px)
-        clamp(15px, 6vw, 80px);
-}
-
-.section-title {
-
-    text-align: center;
-
-    font-size:
-        clamp(30px, 5vw, 46px);
-
-    color: #ff174f;
-
-    margin-bottom: 12px;
-
-    text-shadow:
-        0 0 15px rgba(255,23,79,0.6);
-
-    animation: sectionGlow 2s infinite alternate;
-}
-
-@keyframes sectionGlow {
-
-    from {
-        text-shadow: 0 0 10px #ff174f;
-    }
-
-    to {
-        text-shadow:
-            0 0 20px #ff174f,
-            0 0 40px rgba(255,23,79,0.5);
-    }
-
-}
-
-.section-subtitle {
-
-    text-align: center;
-
-    color: #999;
-
-    font-size:
-        clamp(13px, 2vw, 17px);
-
-    margin-bottom: 45px;
-}
-
-
-/* =====================================================
-   STATS
-===================================================== */
-
-.stats {
-
-    width: min(100%, 1000px);
-
-    margin: 0 auto 60px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: clamp(12px, 3vw, 25px);
-}
-
-.stat-card {
-
-    background:
-        linear-gradient(
-            145deg,
-            #121212,
-            #080808
-        );
-
-    border: 1px solid #ff174f;
-
-    border-radius: 12px;
-
-    padding:
-        clamp(20px, 4vw, 35px)
-        10px;
-
-    text-align: center;
-
-    box-shadow:
-        0 0 20px rgba(255,23,79,0.12);
-
-    transition: 0.4s;
-
-    animation: statIn 0.8s ease both;
-}
-
-.stat-card:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.stat-card:nth-child(2) {
-    animation-delay: 0.3s;
-}
-
-.stat-card:nth-child(3) {
-    animation-delay: 0.5s;
-}
-
-@keyframes statIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-.stat-card:hover {
-
-    transform:
-        translateY(-8px)
-        scale(1.03);
-
-    box-shadow:
-        0 0 25px rgba(255,23,79,0.5);
-}
-
-.stat-number {
-
-    font-size:
-        clamp(30px, 6vw, 46px);
-
-    font-weight: 900;
-
-    color: #ff174f;
-
-    text-shadow:
-        0 0 15px #ff174f;
-
-    animation: numberGlow 2s infinite alternate;
-}
-
-@keyframes numberGlow {
-
-    from {
-        text-shadow: 0 0 8px #ff174f;
-    }
-
-    to {
-        text-shadow:
-            0 0 15px #ff174f,
-            0 0 30px #ff174f;
-    }
-
-}
-
-.stat-label {
-
-    margin-top: 6px;
-
-    color: #bbb;
-
-    font-size:
-        clamp(11px, 2vw, 15px);
-
-    font-weight: bold;
-}
-
-
-/* =====================================================
-   FREE FIRE CARDS
-===================================================== */
-
-.freefire-intro {
-
-    text-align: center;
-
-    margin-bottom: 45px;
-
-    animation: fadeUp 1s ease;
-}
-
-.freefire-intro h3 {
-
-    font-size:
-        clamp(21px, 4vw, 30px);
-
-    margin-bottom: 10px;
-}
-
-.freefire-intro p {
-
-    color: #999;
-
-    font-size:
-        clamp(13px, 2vw, 17px);
-}
-
-.game-grid {
-
-    width: min(100%, 1200px);
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: clamp(15px, 3vw, 28px);
-}
-
-.card {
-
-    background:
-        linear-gradient(
-            145deg,
-            #111,
-            #080808
-        );
-
-    border: 1px solid #222;
-
-    border-radius: 12px;
-
-    padding:
-        clamp(22px, 4vw, 35px);
-
-    text-align: center;
-
-    transition: 0.4s;
-
-    animation: cardIn 0.9s ease both;
-}
-
-.card:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.card:nth-child(2) {
-    animation-delay: 0.3s;
-}
-
-.card:nth-child(3) {
-    animation-delay: 0.5s;
-}
-
-@keyframes cardIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-.card:hover {
-
-    border-color: #ff174f;
-
-    transform:
-        translateY(-10px);
-
-    box-shadow:
-        0 0 30px rgba(255,23,79,0.35);
-}
-
-.card-icon {
-
-    font-size:
-        clamp(35px, 6vw, 50px);
-
-    margin-bottom: 15px;
-
-    display: inline-block;
-
-    animation: floatIcon 2s infinite ease-in-out;
-}
-
-@keyframes floatIcon {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-
-}
-
-.card h3 {
-
-    font-size:
-        clamp(18px, 3vw, 24px);
-
-    margin-bottom: 12px;
-}
-
-.card p {
-
-    color: #999;
-
-    margin-bottom: 20px;
-
-    font-size:
-        clamp(13px, 2vw, 16px);
-}
-
-
-/* =====================================================
-   CLIPS
-===================================================== */
-
-.clips {
-
-    background: #080808;
-}
-
-.clip-grid {
-
-    width: min(100%, 1200px);
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: clamp(15px, 3vw, 28px);
-}
-
-.clip-card {
-
-    background: #0d0d0d;
-
-    border: 1px solid #222;
-
-    border-radius: 12px;
-
-    overflow: hidden;
-
-    transition: 0.4s;
-
-    animation: clipIn 1s ease both;
-}
-
-.clip-card:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.clip-card:nth-child(2) {
-    animation-delay: 0.3s;
-}
-
-.clip-card:nth-child(3) {
-    animation-delay: 0.5s;
-}
-
-@keyframes clipIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(50px) scale(0.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-
-}
-
-.clip-card:hover {
-
-    border-color: #ff174f;
-
-    transform:
-        translateY(-8px);
-
-    box-shadow:
-        0 0 30px rgba(255,23,79,0.3);
-}
-
-
-/* =====================================================
-   VIDEO
-===================================================== */
-
-.clip-video {
-
-    display: block;
-
-    width: 100%;
-
-    height:
-        clamp(300px, 40vw, 430px);
-
-    object-fit: cover;
-
-    background: black;
-}
-
-
-/* =====================================================
-   PLACEHOLDER CLIPS
-===================================================== */
-
-.clip-placeholder {
-
-    height:
-        clamp(300px, 40vw, 430px);
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    font-size:
-        clamp(40px, 8vw, 60px);
-
-    background:
-        radial-gradient(
-            circle,
-            #28000e,
-            #080808
-        );
-
-    animation: placeholderPulse 3s infinite alternate;
-}
-
-@keyframes placeholderPulse {
-
-    from {
-        box-shadow:
-            inset 0 0 10px rgba(255,23,79,0.1);
-    }
-
-    to {
-        box-shadow:
-            inset 0 0 50px rgba(255,23,79,0.3);
-    }
-
-}
-
-.clip-info {
-
-    padding:
-        clamp(18px, 3vw, 25px);
-}
-
-.clip-info h3 {
-
-    color: #ff174f;
-
-    font-size:
-        clamp(17px, 3vw, 22px);
-
-    margin-bottom: 8px;
-}
-
-.clip-info p {
-
-    color: #999;
-
-    font-size:
-        clamp(13px, 2vw, 16px);
-
-    margin-bottom: 15px;
-}
-
-
-/* =====================================================
-   TIKTOK
-===================================================== */
-
-.tiktok {
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #25000c,
-            #050505 65%
-        );
-}
-
-.tiktok h2 {
-
-    font-size:
-        clamp(30px, 7vw, 60px);
-
-    margin-bottom: 15px;
-
-    color: white;
-
-    text-shadow:
-        0 0 15px #ff174f;
-
-    animation: titlePulse 2.5s infinite alternate;
-}
-
-.tiktok p {
-
-    color: #999;
-
-    margin-bottom: 30px;
-
-    font-size:
-        clamp(13px, 2vw, 17px);
-}
-
-
-/* =====================================================
-   ABOUT
-===================================================== */
-
-.about {
-
-    width: min(100%, 900px);
-
-    margin: auto;
-
-    text-align: center;
-}
-
-.about p {
-
-    color: #999;
-
-    font-size:
-        clamp(14px, 2vw, 18px);
-
-    line-height: 1.8;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer {
-
-    text-align: center;
-
-    padding: 28px 15px;
-
-    background: #000;
-
-    border-top: 1px solid #222;
-
-    color: #777;
-
-    font-size:
-        clamp(12px, 2vw, 15px);
-}
-
-footer span {
-
-    color: #ff174f;
-
-    text-shadow:
-        0 0 10px #ff174f;
-}
-
-
-/* =====================================================
-   GENERAL ANIMATION
-===================================================== */
-
-@keyframes fadeUp {
-
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-/* =====================================================
-   TABLETS
-===================================================== */
-
-@media (max-width: 900px) {
-
-    .game-grid,
-    .clip-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-    }
-
-}
-
-
-/* =====================================================
-   PHONES
-===================================================== */
-
-@media (max-width: 600px) {
+    /* =========================
+       NAVBAR
+    ========================= */
 
     nav {
-
-        padding:
-            13px 12px;
-
-    }
-
-    nav ul {
-
-        gap: 8px;
-
-    }
-
-    nav a {
-
-        font-size: 10px;
-
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background: rgba(0, 0, 0, 0.9);
+      border-bottom: 1px solid rgba(255, 23, 79, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
     }
 
     .logo {
-
-        font-size: 17px;
-
+      font-size: 27px;
+      font-weight: 900;
+      color: #ff174f;
+      text-shadow:
+        0 0 8px #ff174f,
+        0 0 20px #ff174f;
+      letter-spacing: 1px;
     }
 
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff174f;
+      text-shadow: 0 0 10px #ff174f;
+    }
+
+    .menu {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #ff174f;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px 60px;
 
-        min-height: 100svh;
+      background:
+        radial-gradient(circle at center, rgba(255, 23, 79, 0.13), transparent 40%),
+        linear-gradient(#070707, #030303);
+    }
 
-        padding-top: 100px;
-
+    .hero-content {
+      max-width: 950px;
     }
 
     .hero h1 {
+      font-size: clamp(60px, 12vw, 150px);
+      color: #ff174f;
+      text-shadow:
+        0 0 10px #ff174f,
+        0 0 30px #ff174f,
+        0 0 70px rgba(255, 23, 79, 0.8);
+      letter-spacing: 8px;
+      animation: glow 2s infinite alternate;
+    }
 
-        font-size:
-            clamp(42px, 15vw, 75px);
+    @keyframes glow {
+      from {
+        text-shadow:
+          0 0 10px #ff174f,
+          0 0 25px #ff174f;
+      }
 
+      to {
+        text-shadow:
+          0 0 20px #ff174f,
+          0 0 50px #ff174f,
+          0 0 90px rgba(255, 23, 79, 0.8);
+      }
     }
 
     .hero h2 {
-
-        font-size: 15px;
-
+      margin-top: 15px;
+      font-size: 30px;
+      letter-spacing: 8px;
     }
 
     .hero p {
-
-        font-size: 12px;
-
+      margin: 25px 0;
+      color: #c9c9c9;
+      font-size: 18px;
+      letter-spacing: 2px;
     }
 
-    .stats {
-
-        grid-template-columns:
-            repeat(3, 1fr);
-
-        gap: 8px;
-
-    }
-
-    .stat-card {
-
-        padding:
-            18px 5px;
-
-    }
-
-    .stat-number {
-
-        font-size: 25px;
-
-    }
-
-    .stat-label {
-
-        font-size: 9px;
-
-    }
-
-    .game-grid,
-    .clip-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .card {
-
-        padding: 25px 18px;
-
-    }
-
-    .clip-video,
-    .clip-placeholder {
-
-        height:
-            min(125vw, 500px);
-
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 30px;
     }
 
     .btn {
-
-        width: auto;
-
-        max-width: 100%;
-
+      display: inline-block;
+      padding: 15px 28px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      border: 1px solid #ff174f;
     }
 
-}
-
-
-/* =====================================================
-   VERY SMALL PHONES
-===================================================== */
-
-@media (max-width: 380px) {
-
-    nav ul {
-
-        gap: 5px;
-
+    .btn-primary {
+      background: #ff174f;
+      color: white;
+      box-shadow: 0 0 20px rgba(255, 23, 79, 0.5);
     }
 
-    nav a {
-
-        font-size: 9px;
-
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 35px rgba(255, 23, 79, 0.9);
     }
 
-    .logo {
-
-        font-size: 15px;
-
+    .btn-secondary {
+      color: white;
+      background: transparent;
     }
 
-    .hero h1 {
-
-        font-size: 40px;
-
+    .btn-secondary:hover {
+      background: #ff174f;
+      transform: translateY(-4px);
     }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      color: #ff174f;
+      text-shadow: 0 0 15px rgba(255, 23, 79, 0.7);
+    }
+
+    .section-title p {
+      color: #aaa;
+      margin-top: 10px;
+    }
+
+    /* =========================
+       STATS
+    ========================= */
 
     .stats {
-
-        gap: 5px;
-
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
     }
 
-    .stat-number {
+    .stat {
+      background: #0d0d0d;
+      border: 1px solid #222;
+      padding: 30px 15px;
+      text-align: center;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
 
+    .stat:hover {
+      border-color: #ff174f;
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(255, 23, 79, 0.25);
+    }
+
+    .stat h3 {
+      color: #ff174f;
+      font-size: 35px;
+    }
+
+    .stat p {
+      color: #aaa;
+      margin-top: 8px;
+    }
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #111, #070707);
+      border: 1px solid #242424;
+      border-radius: 15px;
+      padding: 30px;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      top: 0;
+      left: -100%;
+      background: #ff174f;
+      box-shadow: 0 0 15px #ff174f;
+      transition: 0.5s;
+    }
+
+    .card:hover::before {
+      left: 0;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #ff174f;
+      box-shadow: 0 10px 35px rgba(255, 23, 79, 0.2);
+    }
+
+    .card-icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #ff174f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* =========================
+       FREE FIRE
+    ========================= */
+
+    .freefire {
+      background:
+        radial-gradient(circle at 50% 30%, rgba(255, 23, 79, 0.08), transparent 45%),
+        #070707;
+    }
+
+    .ff-box {
+      max-width: 1000px;
+      margin: auto;
+      padding: 50px;
+      border: 1px solid #292929;
+      border-radius: 20px;
+      background: #0c0c0c;
+      text-align: center;
+    }
+
+    .ff-box h3 {
+      font-size: 35px;
+      margin-bottom: 20px;
+    }
+
+    .ff-box p {
+      color: #aaa;
+      line-height: 1.8;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    /* =========================
+       CLIPS
+    ========================= */
+
+    .clip-box {
+      min-height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 1px dashed #444;
+      border-radius: 15px;
+      background: #090909;
+      color: #888;
+    }
+
+    /* =========================
+       SHOP
+    ========================= */
+
+    .shop-card {
+      text-align: center;
+    }
+
+    .shop-card .price {
+      color: #ff174f;
+      font-size: 28px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .coming {
+      display: inline-block;
+      padding: 8px 15px;
+      border: 1px solid #ff174f;
+      border-radius: 20px;
+      color: #ff174f;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* =========================
+       SPONSOR
+    ========================= */
+
+    .contact {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      background: #0d0d0d;
+      border: 1px solid #252525;
+      border-radius: 20px;
+      padding: 55px 25px;
+    }
+
+    .contact h2 {
+      font-size: 38px;
+      color: #ff174f;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      color: #aaa;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 35px 20px;
+      text-align: center;
+      border-top: 1px solid #222;
+      background: #020202;
+    }
+
+    footer .logo {
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* =========================
+       SCROLL BUTTON
+    ========================= */
+
+    #topBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 1px solid #ff174f;
+      background: #0a0a0a;
+      color: #ff174f;
+      cursor: pointer;
+      display: none;
+      font-size: 20px;
+      z-index: 999;
+      box-shadow: 0 0 15px rgba(255, 23, 79, 0.5);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: #050505;
+        flex-direction: column;
+        text-align: center;
+        gap: 0;
+        display: none;
+        border-bottom: 1px solid #ff174f;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        padding: 18px;
+        border-bottom: 1px solid #151515;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
         font-size: 22px;
+        letter-spacing: 4px;
+      }
 
+      .hero p {
+        font-size: 15px;
+      }
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .ff-box {
+        padding: 35px 20px;
+      }
     }
 
-    .stat-label {
+    @media (max-width: 500px) {
 
-        font-size: 8px;
+      .logo {
+        font-size: 21px;
+      }
 
+      .hero h1 {
+        font-size: 52px;
+        letter-spacing: 3px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .stat {
+        padding: 20px 10px;
+      }
+
+      .stat h3 {
+        font-size: 27px;
+      }
+
+      .section-title h2 {
+        font-size: 32px;
+      }
     }
-
-}
-
-
-/* =====================================================
-   REDUCED MOTION
-===================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-
-        animation-duration: 0.01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        scroll-behavior: auto !important;
-
-        transition-duration: 0.01ms !important;
-
-    }
-
-}
-
-</style>
+  </style>
 </head>
-
 
 <body>
 
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
+  <nav>
 
-<nav>
+    <div class="logo">NOOBOFFFX</div>
 
-    <div class="logo">
-        NOOBOFFFX
-    </div>
+    <div class="menu" onclick="toggleMenu()">☰</div>
 
-    <ul>
-
-        <li>
-            <a href="#home">Home</a>
-        </li>
-
-        <li>
-            <a href="#freefire">Free Fire</a>
-        </li>
-
-        <li>
-            <a href="#clips">Clips</a>
-        </li>
-
-        <li>
-            <a href="#tiktok">TikTok</a>
-        </li>
-
-        <li>
-            <a href="#about">About</a>
-        </li>
-
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" onclick="closeMenu()">Home</a></li>
+      <li><a href="#freefire" onclick="closeMenu()">Free Fire</a></li>
+      <li><a href="#clips" onclick="closeMenu()">Clips</a></li>
+      <li><a href="#guides" onclick="closeMenu()">Guides</a></li>
+      <li><a href="#shop" onclick="closeMenu()">Shop</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
     </ul>
 
-</nav>
+  </nav>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+  <!-- =========================
+       HERO
+  ========================== -->
 
-<section class="hero" id="home">
+  <section class="hero" id="home">
 
     <div class="hero-content">
 
-        <h1>
-            NOOBOFFFX
-        </h1>
+      <h1>NOOBOFFFX</h1>
 
-        <h2>
-            FREE FIRE CREATOR
-        </h2>
+      <h2>FREE FIRE CREATOR</h2>
 
-        <p>
-            GAMING • CLIPS • HIGHLIGHTS • RANKED GRIND
-        </p>
+      <p>
+        GAMING • CLIPS • HIGHLIGHTS • RANKED GRIND
+      </p>
 
+      <div class="buttons">
+
+        <!-- Replace # with your actual TikTok link -->
         <a
-            class="btn"
-            href="https://www.tiktok.com/@noobofffx"
-            target="_blank"
-            rel="noopener"
+          href="#"
+          class="btn btn-primary"
+          target="_blank"
         >
-            FOLLOW @NOOBOFFFX
+          FOLLOW @NOOBOFFFX
         </a>
+
+        <!-- Replace # with your YouTube link -->
+        <a
+          href="#"
+          class="btn btn-secondary"
+          target="_blank"
+        >
+          YOUTUBE
+        </a>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- =====================================================
-     FREE FIRE
-===================================================== -->
+  <!-- =========================
+       STATS
+  ========================== -->
 
-<section id="freefire">
+  <section>
 
-    <h2 class="section-title">
-        FREE FIRE ZONE
-    </h2>
+    <div class="section-title">
 
-    <p class="section-subtitle">
-        WELCOME TO MY BATTLEGROUND 🔥
-    </p>
+      <h2>THE GRIND</h2>
 
+      <p>
+        Building NOOBOFFFX one game at a time.
+      </p>
 
-    <!-- TIKTOK STATS -->
+    </div>
 
     <div class="stats">
 
-        <div class="stat-card">
+      <div class="stat">
+        <h3>FREE</h3>
+        <p>FIRE</p>
+      </div>
 
-            <div class="stat-number">
-                780
-            </div>
+      <div class="stat">
+        <h3>24/7</h3>
+        <p>GRIND</p>
+      </div>
 
-            <div class="stat-label">
-                FOLLOWERS
-            </div>
+      <div class="stat">
+        <h3>HD</h3>
+        <p>CLIPS</p>
+      </div>
 
-        </div>
-
-
-        <div class="stat-card">
-
-            <div class="stat-number">
-                8,588
-            </div>
-
-            <div class="stat-label">
-                TOTAL LIKES
-            </div>
-
-        </div>
-
-
-        <div class="stat-card">
-
-            <div class="stat-number">
-                10
-            </div>
-
-            <div class="stat-label">
-                VIDEOS
-            </div>
-
-        </div>
+      <div class="stat">
+        <h3>FFX</h3>
+        <p>CREATOR</p>
+      </div>
 
     </div>
 
+  </section>
 
-    <div class="freefire-intro">
 
-        <h3>
-            WELCOME TO MY BATTLEGROUND
-        </h3>
+  <!-- =========================
+       FREE FIRE
+  ========================== -->
+
+  <section class="freefire" id="freefire">
+
+    <div class="section-title">
+
+      <h2>FREE FIRE</h2>
+
+      <p>
+        Everything NOOBOFFFX does around the game.
+      </p>
+
+    </div>
+
+    <div class="ff-box">
+
+      <h3>🔥 THE BATTLE STARTS HERE</h3>
+
+      <p>
+        Welcome to the NOOBOFFFX Free Fire hub.
+        Discover gaming clips, ranked highlights,
+        gameplay tips, settings and future content
+        from the NOOBOFFFX creator community.
+      </p>
+
+      <div class="buttons">
+
+        <a href="#clips" class="btn btn-primary">
+          WATCH CLIPS
+        </a>
+
+        <a href="#guides" class="btn btn-secondary">
+          VIEW GUIDES
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CLIPS
+  ========================== -->
+
+  <section id="clips">
+
+    <div class="section-title">
+
+      <h2>🔥 LATEST CLIPS</h2>
+
+      <p>
+        Your best Free Fire moments will live here.
+      </p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="card-icon">🎬</div>
+
+        <h3>Free Fire Highlights</h3>
 
         <p>
-            This is where I share my Free Fire gameplay,
-            clutch moments, headshots and ranked highlights.
+          Showcase your best kills, clutches,
+          ranked matches and crazy moments.
         </p>
 
-    </div>
+        <a href="#">
+          ADD VIDEO →
+        </a>
 
+      </div>
 
-    <div class="game-grid">
 
+      <div class="card">
 
-        <!-- HEADSHOT -->
+        <div class="card-icon">⚡</div>
 
-        <div class="card">
-
-            <div class="card-icon">
-                🎯
-            </div>
-
-            <h3>
-                HEADSHOT ZONE
-            </h3>
-
-            <p>
-                Clean shots, fast reactions and crazy
-                Free Fire moments.
-            </p>
-
-            <a
-                class="btn"
-                href="https://www.tiktok.com/@noobofffx"
-                target="_blank"
-                rel="noopener"
-            >
-                WATCH
-            </a>
-
-        </div>
-
-
-        <!-- RANKED -->
-
-        <div class="card">
-
-            <div class="card-icon">
-                🏆
-            </div>
-
-            <h3>
-                RANKED GRIND
-            </h3>
-
-            <p>
-                Pushing ranks and chasing those
-                legendary Booyahs.
-            </p>
-
-            <a
-                class="btn"
-                href="https://www.tiktok.com/@noobofffx"
-                target="_blank"
-                rel="noopener"
-            >
-                WATCH
-            </a>
-
-        </div>
-
-
-        <!-- CLUTCH -->
-
-        <div class="card">
-
-            <div class="card-icon">
-                💥
-            </div>
-
-            <h3>
-                CLUTCH MOMENTS
-            </h3>
-
-            <p>
-                When the pressure is high and
-                the comeback begins.
-            </p>
-
-            <a
-                class="btn"
-                href="https://www.tiktok.com/@noobofffx"
-                target="_blank"
-                rel="noopener"
-            >
-                WATCH
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CLIPS
-===================================================== -->
-
-<section class="clips" id="clips">
-
-    <h2 class="section-title">
-        MY CLIPS
-    </h2>
-
-    <p class="section-subtitle">
-        SOME OF MY LATEST FREE FIRE CONTENT 🔥
-    </p>
-
-
-    <div class="clip-grid">
-
-
-        <!-- =================================================
-             YOUR REAL VIDEO
-        ================================================== -->
-
-        <div class="clip-card">
-
-            <video
-                class="clip-video"
-                controls
-                playsinline
-                preload="metadata"
-            >
-
-                <source
-                    src="./BIG%20COME%20BACK%20NEW%20PHONK-Monocole.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support video playback.
-
-            </video>
-
-
-            <div class="clip-info">
-
-                <h3>
-                    🔥 BIG COMEBACK
-                </h3>
-
-                <p>
-                    One of my latest Free Fire gaming clips.
-                </p>
-
-                <a
-                    class="btn"
-                    href="https://www.tiktok.com/@noobofffx"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    WATCH ON TIKTOK
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             SECOND CLIP
-        ================================================== -->
-
-        <div class="clip-card">
-
-            <div class="clip-placeholder">
-                ⚡
-            </div>
-
-            <div class="clip-info">
-
-                <h3>
-                    ⚡ CRAZY PLAY
-                </h3>
-
-                <p>
-                    More crazy gameplay coming soon.
-                </p>
-
-                <a
-                    class="btn"
-                    href="https://www.tiktok.com/@noobofffx"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    WATCH ON TIKTOK
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             THIRD CLIP
-        ================================================== -->
-
-        <div class="clip-card">
-
-            <div class="clip-placeholder">
-                🏆
-            </div>
-
-            <div class="clip-info">
-
-                <h3>
-                    🏆 EPIC HIGHLIGHT
-                </h3>
-
-                <p>
-                    Check out more highlights on my TikTok.
-                </p>
-
-                <a
-                    class="btn"
-                    href="https://www.tiktok.com/@noobofffx"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    WATCH ON TIKTOK
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     TIKTOK
-===================================================== -->
-
-<section class="tiktok" id="tiktok">
-
-    <h2>
-        FOLLOW NOOBOFFFX
-    </h2>
-
-    <p>
-        Join the journey and watch my latest Free Fire content.
-    </p>
-
-    <a
-        class="btn"
-        href="https://www.tiktok.com/@noobofffx"
-        target="_blank"
-        rel="noopener"
-    >
-        🎵 FOLLOW ME ON TIKTOK
-    </a>
-
-</section>
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section id="about">
-
-    <div class="about">
-
-        <h2 class="section-title">
-            ABOUT NOOBOFFFX
-        </h2>
+        <h3>Shorts & TikToks</h3>
 
         <p>
-            Welcome to the official NOOBOFFFX gaming website.
-            I'm a Free Fire creator sharing gaming clips,
-            highlights, ranked gameplay and crazy moments.
-            Follow my TikTok to stay updated with my latest content.
+          Keep your visitors connected to
+          your latest short-form gaming content.
         </p>
+
+        <a href="#">
+          VIEW TIKTOK →
+        </a>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">🏆</div>
+
+        <h3>Ranked Grind</h3>
+
+        <p>
+          Share your ranked journey, achievements
+          and memorable matches.
+        </p>
+
+        <a href="#">
+          COMING SOON →
+        </a>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+  <!-- =========================
+       GUIDES
+  ========================== -->
 
-<footer>
+  <section id="guides">
+
+    <div class="section-title">
+
+      <h2>🎯 FREE FIRE GUIDES</h2>
+
+      <p>
+        Helpful content that brings players back to your website.
+      </p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="card-icon">⚙️</div>
+
+        <h3>Sensitivity</h3>
+
+        <p>
+          Share your recommended sensitivity
+          settings and device-specific setups.
+        </p>
+
+        <a href="#">
+          VIEW SETTINGS →
+        </a>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">🎯</div>
+
+        <h3>Aim Tips</h3>
+
+        <p>
+          Create your own original guides
+          for improving gameplay.
+        </p>
+
+        <a href="#">
+          READ GUIDE →
+        </a>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">🏅</div>
+
+        <h3>Ranked Tips</h3>
+
+        <p>
+          Share strategies and lessons from
+          your own ranked experience.
+        </p>
+
+        <a href="#">
+          COMING SOON →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SHOP
+  ========================== -->
+
+  <section id="shop" class="freefire">
+
+    <div class="section-title">
+
+      <h2>🛍️ NOOBOFFFX SHOP</h2>
+
+      <p>
+        Original digital products and creator resources.
+      </p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card shop-card">
+
+        <div class="card-icon">🎨</div>
+
+        <h3>Creator Graphics</h3>
+
+        <p>
+          Original wallpapers, graphics and
+          creator resources made by NOOBOFFFX.
+        </p>
+
+        <div class="coming">
+          COMING SOON
+        </div>
+
+      </div>
+
+
+      <div class="card shop-card">
+
+        <div class="card-icon">🎬</div>
+
+        <h3>Editing Resources</h3>
+
+        <p>
+          Future original resources for
+          gaming video creators and editors.
+        </p>
+
+        <div class="coming">
+          COMING SOON
+        </div>
+
+      </div>
+
+
+      <div class="card shop-card">
+
+        <div class="card-icon">📘</div>
+
+        <h3>Gaming Guides</h3>
+
+        <p>
+          Original guides and educational
+          gaming content from NOOBOFFFX.
+        </p>
+
+        <div class="coming">
+          COMING SOON
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ABOUT
+  ========================== -->
+
+  <section id="about">
+
+    <div class="section-title">
+
+      <h2>ABOUT NOOBOFFFX</h2>
+
+      <p>
+        More than just a gaming page.
+      </p>
+
+    </div>
+
+    <div class="ff-box">
+
+      <h3>🎮 THE CREATOR BEHIND THE NAME</h3>
+
+      <p>
+        NOOBOFFFX is a gaming creator brand focused on
+        Free Fire content, clips, highlights, guides and
+        entertainment. The goal is to build a community
+        around gaming while creating useful and original
+        content for players.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       WORK WITH NOOBOFFFX
+  ========================== -->
+
+  <section>
+
+    <div class="contact">
+
+      <h2>🤝 WORK WITH NOOBOFFFX</h2>
+
+      <p>
+        Interested in legitimate gaming collaborations,
+        creator opportunities or future sponsorships?
+        This section will become the home for professional
+        collaboration enquiries.
+      </p>
+
+      <a
+        href="mailto:YOUR-EMAIL@example.com"
+        class="btn btn-primary"
+      >
+        CONTACT NOOBOFFFX
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="logo">NOOBOFFFX</div>
 
     <p>
-        © 2026
-        <span>NOOBOFFFX</span>
-        • Free Fire Creator
+      © 2026 NOOBOFFFX. All rights reserved.
     </p>
 
-</footer>
+    <p style="margin-top:8px;">
+      Free Fire creator • Gaming • Clips • Guides
+    </p>
 
+  </footer>
+
+
+  <!-- =========================
+       BACK TO TOP
+  ========================== -->
+
+  <button id="topBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    ↑
+  </button>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    function toggleMenu() {
+
+      const nav = document.getElementById("navLinks");
+
+      nav.classList.toggle("active");
+
+    }
+
+
+    function closeMenu() {
+
+      const nav = document.getElementById("navLinks");
+
+      nav.classList.remove("active");
+
+    }
+
+
+    const topBtn = document.getElementById("topBtn");
+
+    window.addEventListener("scroll", function() {
+
+      if (window.scrollY > 500) {
+
+        topBtn.style.display = "block";
+
+      } else {
+
+        topBtn.style.display = "none";
+
+      }
+
+    });
+
+
+  </script>
 
 </body>
 </html>
