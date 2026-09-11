@@ -11,6 +11,7 @@
 <meta name="theme-color" content="#ff008c">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -47,9 +48,8 @@ a{
 
 button{
     font-family:inherit;
+    cursor:pointer;
 }
-
-/* ================= NAV ================= */
 
 nav{
     position:fixed;
@@ -105,7 +105,6 @@ nav{
 .menu{
     display:none;
     font-size:27px;
-    cursor:pointer;
 }
 
 .nav-socials{
@@ -128,12 +127,11 @@ nav{
     font-size:12px;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
     min-height:620px;
     padding:100px 5% 60px;
-
     position:relative;
     overflow:hidden;
 
@@ -150,7 +148,6 @@ nav{
     height:650px;
     right:-150px;
     top:40px;
-
     border-radius:50%;
 
     background:
@@ -285,7 +282,7 @@ nav{
     color:#9ba9bb;
 }
 
-/* ================= GENERAL ================= */
+/* GENERAL */
 
 section{
     padding:65px 4%;
@@ -321,7 +318,7 @@ section{
     font-size:12px;
 }
 
-/* ================= SHOP ================= */
+/* SHOP */
 
 .shop-layout{
     display:grid;
@@ -387,7 +384,7 @@ section{
     margin:10px 0;
 }
 
-/* ================= SUPPORT ================= */
+/* SUPPORT */
 
 .support{
     border:1px solid #116fa0;
@@ -420,7 +417,6 @@ section{
     color:#fff;
     padding:10px;
     border-radius:7px;
-    cursor:pointer;
     font-weight:800;
 }
 
@@ -437,7 +433,7 @@ section{
     text-align:center;
 }
 
-/* ================= CARDS ================= */
+/* CARDS */
 
 .card-grid{
     display:grid;
@@ -478,7 +474,7 @@ section{
     min-height:50px;
 }
 
-/* ================= TWO COLUMNS ================= */
+/* TWO COLUMNS */
 
 .two-columns{
     display:grid;
@@ -486,7 +482,7 @@ section{
     gap:20px;
 }
 
-/* ================= CLIPS ================= */
+/* CLIPS */
 
 .clips{
     display:grid;
@@ -533,7 +529,7 @@ section{
     margin-top:5px;
 }
 
-/* ================= SERVICES ================= */
+/* SERVICES */
 
 .service-list{
     text-align:left;
@@ -554,7 +550,7 @@ section{
     margin-right:8px;
 }
 
-/* ================= EBOOKS ================= */
+/* EBOOKS */
 
 .ebooks{
     display:grid;
@@ -567,6 +563,12 @@ section{
     border:1px solid #145b82;
     border-radius:10px;
     overflow:hidden;
+    transition:.3s;
+}
+
+.ebook:hover{
+    transform:translateY(-5px);
+    border-color:var(--pink);
 }
 
 .ebook-cover{
@@ -599,7 +601,7 @@ section{
     margin:7px 0 12px;
 }
 
-/* ================= TOURNAMENT ================= */
+/* TOURNAMENT */
 
 .tournament{
     border:1px solid var(--pink);
@@ -635,7 +637,7 @@ section{
     font-size:11px;
 }
 
-/* ================= COMMUNITY ================= */
+/* COMMUNITY */
 
 .community{
     background:
@@ -656,7 +658,7 @@ section{
     font-size:12px;
 }
 
-/* ================= ABOUT ================= */
+/* ABOUT */
 
 .about-grid{
     display:grid;
@@ -679,7 +681,7 @@ section{
     font-size:13px;
 }
 
-/* ================= CONTACT ================= */
+/* CONTACT */
 
 .contact{
     text-align:center;
@@ -703,7 +705,7 @@ section{
     font-weight:800;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
     border-top:1px solid rgba(255,255,255,.08);
@@ -744,7 +746,7 @@ footer p{
     font-size:11px;
 }
 
-/* ================= TOP BUTTON ================= */
+/* TOP BUTTON */
 
 #topBtn{
     position:fixed;
@@ -760,8 +762,6 @@ footer p{
     background:var(--pink);
     color:#fff;
 
-    cursor:pointer;
-
     display:none;
     z-index:900;
     font-size:20px;
@@ -771,12 +771,173 @@ footer p{
     display:block;
 }
 
-/* ================= MOBILE ================= */
+/* =========================================
+   FREE FIRE GUIDE EBOOK PRODUCT MODAL
+========================================= */
+
+.ebook-modal{
+    position:fixed;
+    inset:0;
+    z-index:5000;
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.88);
+    backdrop-filter:blur(12px);
+}
+
+.ebook-modal.show{
+    display:flex;
+}
+
+.ebook-modal-box{
+    width:100%;
+    max-width:650px;
+    max-height:90vh;
+    overflow-y:auto;
+
+    position:relative;
+
+    padding:32px;
+
+    border-radius:15px;
+
+    background:
+    radial-gradient(
+        circle at 50% 0%,
+        rgba(255,0,140,.2),
+        transparent 35%
+    ),
+    #071321;
+
+    border:1px solid var(--pink);
+
+    box-shadow:
+    0 0 60px rgba(255,0,140,.25);
+}
+
+.ebook-close{
+    position:absolute;
+    top:10px;
+    right:16px;
+
+    background:none;
+    border:0;
+
+    color:white;
+    font-size:32px;
+}
+
+.ebook-big-icon{
+    text-align:center;
+    font-size:65px;
+    margin-bottom:8px;
+}
+
+.ebook-label{
+    text-align:center;
+    color:var(--cyan);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:3px;
+}
+
+.ebook-modal-box h2{
+    text-align:center;
+    margin-top:8px;
+    font-size:28px;
+}
+
+.modal-price{
+    text-align:center;
+    color:var(--pink);
+    font-size:26px;
+    font-weight:1000;
+    margin:10px 0 18px;
+}
+
+.ebook-description{
+    color:#b9c5d2;
+    line-height:1.7;
+    font-size:13px;
+}
+
+.ebook-includes{
+    margin-top:20px;
+    padding:20px;
+
+    border-radius:10px;
+
+    background:#09192b;
+    border:1px solid #145b82;
+}
+
+.ebook-includes h3{
+    margin-bottom:12px;
+    font-size:15px;
+}
+
+.ebook-includes ul{
+    list-style:none;
+}
+
+.ebook-includes li{
+    color:#dce7f2;
+    font-size:13px;
+    padding:9px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.ebook-includes li:last-child{
+    border-bottom:0;
+}
+
+.ebook-includes li:before{
+    content:"✓";
+    color:var(--pink);
+    font-weight:900;
+    margin-right:9px;
+}
+
+.video-coming{
+    margin-top:15px;
+    padding:13px;
+
+    border-radius:8px;
+
+    background:rgba(255,0,140,.08);
+    border:1px solid rgba(255,0,140,.3);
+
+    color:#d8c1d0;
+    font-size:11px;
+    line-height:1.6;
+}
+
+.checkout-btn{
+    width:100%;
+    margin-top:20px;
+    text-align:center;
+}
+
+.secure-note{
+    text-align:center;
+    color:#718398;
+    font-size:10px;
+    line-height:1.5;
+    margin-top:12px;
+}
+
+/* MOBILE */
 
 @media(max-width:900px){
 
     .nav-links{
         display:none;
+
         position:absolute;
         top:68px;
         left:0;
@@ -852,7 +1013,16 @@ footer p{
     section{
         padding:50px 5%;
     }
+
+    .ebook-modal-box{
+        padding:25px 18px;
+    }
+
+    .ebook-modal-box h2{
+        font-size:22px;
+    }
 }
+
 </style>
 </head>
 
@@ -865,6 +1035,7 @@ footer p{
 <a href="#home" class="logo">NOOBOFFFX</a>
 
 <ul class="nav-links" id="navLinks">
+
 <li><a href="#home">HOME</a></li>
 <li><a href="#shop">SHOP</a></li>
 <li><a href="#guides">GUIDES</a></li>
@@ -872,15 +1043,18 @@ footer p{
 <li><a href="#tournaments">TOURNAMENT</a></li>
 <li><a href="#support">SUPPORT</a></li>
 <li><a href="#about">ABOUT</a></li>
+
 </ul>
 
 <div class="nav-socials">
 
 <a href="https://www.tiktok.com/@noobofffx"
-target="_blank">🎵</a>
+target="_blank"
+rel="noopener noreferrer">🎵</a>
 
 <a href="https://www.youtube.com/channel/UCzXy_9fqhIC_8Ob-WWwVYbQ"
-target="_blank">▶</a>
+target="_blank"
+rel="noopener noreferrer">▶</a>
 
 <a href="mailto:erovwoserehachikaruefetobore@gmail.com">✉</a>
 
@@ -920,12 +1094,14 @@ join the journey.
 
 <a href="https://www.tiktok.com/@noobofffx"
 target="_blank"
+rel="noopener noreferrer"
 class="btn primary">
 🎵 FOLLOW ON TIKTOK
 </a>
 
 <a href="https://www.youtube.com/channel/UCzXy_9fqhIC_8Ob-WWwVYbQ"
 target="_blank"
+rel="noopener noreferrer"
 class="btn youtube">
 ▶ SUBSCRIBE ON YOUTUBE
 </a>
@@ -975,6 +1151,7 @@ class="btn youtube">
 <div class="section-head">
 
 <div>
+
 <h2 class="section-title">
 🛒 <span>DIGITAL</span> SHOP
 </h2>
@@ -982,15 +1159,22 @@ class="btn youtube">
 <p class="section-description">
 Original creator products • Digital downloads • Future instant delivery
 </p>
-</div>
-
-<a href="#shop" class="view-all">VIEW ALL →</a>
 
 </div>
+
+<a href="#shop" class="view-all">
+VIEW ALL →
+</a>
+
+</div>
+
 
 <div class="shop-layout">
 
 <div class="products">
+
+
+<!-- WALLPAPERS -->
 
 <div class="product">
 
@@ -1015,6 +1199,8 @@ BUY NOW →
 </div>
 
 
+<!-- EDITING -->
+
 <div class="product">
 
 <div class="product-image">🎬</div>
@@ -1038,6 +1224,8 @@ BUY NOW →
 </div>
 
 
+<!-- FREE FIRE GUIDE — THIS ONE IS NOW FULLY UPGRADED -->
+
 <div class="product">
 
 <div class="product-image">📕</div>
@@ -1053,13 +1241,15 @@ Gameplay tips, settings and strategies.
 <div class="price">₦2,000</div>
 
 <button class="btn primary"
-onclick="buyProduct('Free Fire Guide eBook')">
+onclick="openGuideEbook()">
 BUY NOW →
 </button>
 
 </div>
 </div>
 
+
+<!-- GRAPHICS -->
 
 <div class="product">
 
@@ -1098,19 +1288,23 @@ Fuel the grind and support more gaming content.
 
 <div class="amounts">
 
-<button class="amount" onclick="selectAmount(this,'₦500')">
+<button class="amount"
+onclick="selectAmount(this,'₦500')">
 ₦500
 </button>
 
-<button class="amount" onclick="selectAmount(this,'₦1,000')">
+<button class="amount"
+onclick="selectAmount(this,'₦1,000')">
 ₦1,000
 </button>
 
-<button class="amount" onclick="selectAmount(this,'₦2,000')">
+<button class="amount"
+onclick="selectAmount(this,'₦2,000')">
 ₦2,000
 </button>
 
-<button class="amount" onclick="selectAmount(this,'Other')">
+<button class="amount"
+onclick="selectAmount(this,'Other')">
 Other
 </button>
 
@@ -1129,6 +1323,7 @@ Payment checkout will be connected here.
 </div>
 
 </div>
+
 </section>
 
 
@@ -1139,6 +1334,7 @@ Payment checkout will be connected here.
 <div class="section-head">
 
 <div>
+
 <h2 class="section-title">
 📚 <span>GUIDES</span> & TUTORIALS
 </h2>
@@ -1146,11 +1342,14 @@ Payment checkout will be connected here.
 <p class="section-description">
 Learn, improve and level up your Free Fire skills.
 </p>
+
 </div>
 
 </div>
+
 
 <div class="card-grid">
+
 
 <div class="card">
 
@@ -1239,6 +1438,7 @@ VIEW GUIDE →
 <div class="section-head">
 
 <div>
+
 <h2 class="section-title">
 ⚡ <span>CREATOR</span> SERVICES
 </h2>
@@ -1246,9 +1446,11 @@ VIEW GUIDE →
 <p class="section-description">
 Professional help with gaming and creator content.
 </p>
+
 </div>
 
 </div>
+
 
 <div class="card-grid">
 
@@ -1317,6 +1519,7 @@ BOOK A SERVICE →
 <div class="section-head">
 
 <div>
+
 <h2 class="section-title">
 ▶ <span>LATEST</span> CLIPS & CONTENT
 </h2>
@@ -1324,15 +1527,18 @@ BOOK A SERVICE →
 <p class="section-description">
 Shorts, highlights and epic gaming moments.
 </p>
+
 </div>
 
 <a href="https://www.youtube.com/channel/UCzXy_9fqhIC_8Ob-WWwVYbQ"
 target="_blank"
+rel="noopener noreferrer"
 class="view-all">
 WATCH ALL →
 </a>
 
 </div>
+
 
 <div class="clips">
 
@@ -1370,16 +1576,19 @@ WATCH ALL →
 
 </div>
 
+
 <div class="buttons">
 
 <a href="https://www.tiktok.com/@noobofffx"
 target="_blank"
+rel="noopener noreferrer"
 class="btn primary">
 🎵 SEE MORE ON TIKTOK
 </a>
 
 <a href="https://www.youtube.com/channel/UCzXy_9fqhIC_8Ob-WWwVYbQ"
 target="_blank"
+rel="noopener noreferrer"
 class="btn youtube">
 ▶ SEE MORE ON YOUTUBE
 </a>
@@ -1396,6 +1605,7 @@ class="btn youtube">
 <div class="section-head">
 
 <div>
+
 <h2 class="section-title">
 📖 <span>E-BOOKS</span> & GUIDES
 </h2>
@@ -1403,11 +1613,14 @@ class="btn youtube">
 <p class="section-description">
 Create short guides on headshot tricks, custom HUD settings and character combos.
 </p>
+
 </div>
 
 </div>
+
 
 <div class="ebooks">
+
 
 <div class="ebook">
 
@@ -1429,6 +1642,7 @@ BUY NOW
 </button>
 
 </div>
+
 </div>
 
 
@@ -1452,6 +1666,7 @@ BUY NOW
 </button>
 
 </div>
+
 </div>
 
 
@@ -1475,6 +1690,7 @@ BUY NOW
 </button>
 
 </div>
+
 </div>
 
 
@@ -1498,6 +1714,7 @@ BUY NOW
 </button>
 
 </div>
+
 </div>
 
 </div>
@@ -1510,6 +1727,7 @@ BUY NOW
 <section id="tournaments">
 
 <div class="two-columns">
+
 
 <div class="tournament">
 
@@ -1551,12 +1769,14 @@ Chat, get updates and be part of the NOOBOFFFX family.
 
 <a href="https://www.tiktok.com/@noobofffx"
 target="_blank"
+rel="noopener noreferrer"
 class="btn primary">
 FOLLOW TIKTOK
 </a>
 
 <a href="https://www.youtube.com/channel/UCzXy_9fqhIC_8Ob-WWwVYbQ"
 target="_blank"
+rel="noopener noreferrer"
 class="btn youtube">
 YOUTUBE
 </a>
@@ -1576,6 +1796,7 @@ YOUTUBE
 
 <div class="about-grid">
 
+
 <div class="about-box">
 
 <h2>👥 ABOUT NOOBOFFFX</h2>
@@ -1585,6 +1806,8 @@ NOOBOFFFX is a Free Fire gaming creator brand focused
 on gaming clips, highlights, tutorials, guides and
 entertaining content.
 
+<br><br>
+
 This website is the central hub for the NOOBOFFFX
 gaming journey, community and creator projects.
 </p>
@@ -1593,12 +1816,14 @@ gaming journey, community and creator projects.
 
 <a href="https://www.tiktok.com/@noobofffx"
 target="_blank"
+rel="noopener noreferrer"
 class="btn primary">
 🎵 TikTok
 </a>
 
 <a href="https://www.youtube.com/channel/UCzXy_9fqhIC_8Ob-WWwVYbQ"
 target="_blank"
+rel="noopener noreferrer"
 class="btn youtube">
 ▶ YouTube
 </a>
@@ -1617,6 +1842,8 @@ For collaborations, sponsorships, creator services,
 brand enquiries or legitimate business opportunities,
 get in touch through the official business email.
 </p>
+
+<br>
 
 <a class="email"
 href="mailto:erovwoserehachikaruefetobore@gmail.com">
@@ -1656,12 +1883,14 @@ or get in touch for creator and business opportunities.
 
 <a href="https://www.tiktok.com/@noobofffx"
 target="_blank"
+rel="noopener noreferrer"
 class="btn primary">
 FOLLOW TIKTOK
 </a>
 
 <a href="https://www.youtube.com/channel/UCzXy_9fqhIC_8Ob-WWwVYbQ"
 target="_blank"
+rel="noopener noreferrer"
 class="btn youtube">
 SUBSCRIBE YOUTUBE
 </a>
@@ -1697,12 +1926,14 @@ NOOBOFFFX
 <a href="#about">About</a>
 
 <a href="https://www.tiktok.com/@noobofffx"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer">
 TikTok
 </a>
 
 <a href="https://www.youtube.com/channel/UCzXy_9fqhIC_8Ob-WWwVYbQ"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer">
 YouTube
 </a>
 
@@ -1719,6 +1950,87 @@ Free Fire Creator • Gaming • Content • Community
 </footer>
 
 
+<!-- ================= FREE FIRE GUIDE EBOOK MODAL ================= -->
+
+<div class="ebook-modal" id="ebookModal">
+
+<div class="ebook-modal-box">
+
+<button class="ebook-close"
+onclick="closeGuideEbook()">
+×
+</button>
+
+<div class="ebook-big-icon">
+📕
+</div>
+
+<div class="ebook-label">
+NOOBOFFFX DIGITAL STORE
+</div>
+
+<h2>FREE FIRE GUIDE EBOOK</h2>
+
+<div class="modal-price">
+₦2,000
+</div>
+
+<p class="ebook-description">
+The NOOBOFFFX Free Fire Guide is a digital learning
+package designed to help players understand important
+gameplay settings, aim techniques and strategies.
+</p>
+
+<div class="ebook-includes">
+
+<h3>🔥 WHAT YOU WILL GET</h3>
+
+<ul>
+
+<li>🎯 Headshot tips and practice ideas</li>
+
+<li>⚙️ Sensitivity setup guide</li>
+
+<li>📱 Custom HUD setup guide</li>
+
+<li>👑 Character combination guide</li>
+
+<li>🏆 Ranked gameplay strategies</li>
+
+<li>🎮 Gameplay improvement tips</li>
+
+<li>🎥 NOOBOFFFX video lessons</li>
+
+</ul>
+
+</div>
+
+<div class="video-coming">
+
+🎥 <strong>VIDEO LESSONS:</strong><br>
+Your original NOOBOFFFX videos can be added to
+this product as you create them.
+</div>
+
+<button class="btn primary checkout-btn"
+onclick="ebookCheckout()">
+
+💳 CONTINUE TO SECURE CHECKOUT →
+
+</button>
+
+<p class="secure-note">
+Payment details will be entered only on the secure
+payment provider's checkout page.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================= TOP BUTTON ================= -->
+
 <button id="topBtn"
 onclick="window.scrollTo({top:0,behavior:'smooth'})">
 ↑
@@ -1727,7 +2039,7 @@ onclick="window.scrollTo({top:0,behavior:'smooth'})">
 
 <script>
 
-/* MOBILE MENU */
+/* ================= MOBILE MENU ================= */
 
 function toggleMenu(){
 
@@ -1738,7 +2050,7 @@ function toggleMenu(){
 }
 
 
-/* CLOSE MOBILE MENU AFTER CLICK */
+/* CLOSE MOBILE MENU */
 
 document
 .querySelectorAll(".nav-links a")
@@ -1755,13 +2067,14 @@ document
 });
 
 
-/* BACK TO TOP */
+/* ================= BACK TO TOP ================= */
 
 window.addEventListener("scroll",()=>{
 
-    const button=document.getElementById("topBtn");
+    const button =
+    document.getElementById("topBtn");
 
-    if(window.scrollY>500){
+    if(window.scrollY > 500){
 
         button.classList.add("show");
 
@@ -1774,7 +2087,7 @@ window.addEventListener("scroll",()=>{
 });
 
 
-/* SUPPORT AMOUNT */
+/* ================= SUPPORT ================= */
 
 let selectedAmount="₦500";
 
@@ -1791,47 +2104,118 @@ function selectAmount(button,amount){
 }
 
 
-/* PAYMENT PLACEHOLDER */
+function supportNoob(){
+
+    alert(
+        "💗 THANK YOU FOR SUPPORTING NOOBOFFFX!\n\n"+
+        "Selected support: "+selectedAmount+
+        "\n\n"+
+        "The secure support payment checkout will be connected next."
+    );
+
+}
+
+
+/* ================= OTHER PRODUCTS ================= */
 
 function buyProduct(product){
 
     alert(
         "🔥 "+product+
-        "\\n\\nThe product checkout will be connected here.\\n\\nOnce your real payment-page link is ready, this BUY NOW button will send customers directly to checkout."
+        "\n\n"+
+        "This product is ready for its product-details and secure checkout system."
     );
 
 }
 
 
-function supportNoob(){
-
-    alert(
-        "💗 Thank you for supporting NOOBOFFFX!\\n\\nSelected support: "+
-        selectedAmount+
-        "\\n\\nYour real payment checkout will be connected here."
-    );
-
-}
-
-
-/* GUIDES */
+/* ================= GUIDES ================= */
 
 function guideComing(name){
 
     alert(
         "📚 "+name+
-        "\\n\\nThis guide section is ready for the full guide content to be added."
+        "\n\n"+
+        "This guide section is ready for the full guide content to be added."
     );
 
 }
 
 
-/* TOURNAMENT */
+/* ================= TOURNAMENT ================= */
 
 function tournamentJoin(){
 
-    window.location.href=
+    window.location.href =
     "mailto:erovwoserehachikaruefetobore@gmail.com?subject=NOOBOFFFX%20Community%20Match%20Registration";
+
+}
+
+
+/* =========================================
+   FREE FIRE GUIDE EBOOK
+========================================= */
+
+function openGuideEbook(){
+
+    document
+    .getElementById("ebookModal")
+    .classList.add("show");
+
+    document.body.style.overflow="hidden";
+
+}
+
+
+function closeGuideEbook(){
+
+    document
+    .getElementById("ebookModal")
+    .classList.remove("show");
+
+    document.body.style.overflow="";
+
+}
+
+
+/* CLOSE MODAL WHEN CLICKING OUTSIDE */
+
+document
+.getElementById("ebookModal")
+.addEventListener("click",function(event){
+
+    if(event.target === this){
+
+        closeGuideEbook();
+
+    }
+
+});
+
+
+/* ESC KEY CLOSES MODAL */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+
+        closeGuideEbook();
+
+    }
+
+});
+
+
+/* ================= EBOOK CHECKOUT ================= */
+
+function ebookCheckout(){
+
+    alert(
+        "📕 NOOBOFFFX FREE FIRE GUIDE EBOOK\n\n"+
+        "Price: ₦2,000\n\n"+
+        "Your secure payment checkout will be connected here next.\n\n"+
+        "After payment is connected, customers will be able to pay securely and receive their purchased content."
+    );
 
 }
 
