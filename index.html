@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>NOOBOFFFX | Free Fire Creator</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="NOOBOFFFX is a Free Fire gaming creator bringing you gaming clips, highlights, guides, sensitivity settings, ranked gameplay and creator content.">
+  <title>NOOBOFFFX | Free Fire Gaming Creator</title>
 
-  <meta name="keywords" content="NOOBOFFFX, Free Fire, Free Fire creator, Free Fire clips, Free Fire sensitivity, gaming, gaming creator, Free Fire guides">
+  <meta name="description"
+        content="NOOBOFFFX — Free Fire gaming creator featuring clips, highlights, ranked gameplay, guides and gaming content.">
 
-  <meta name="theme-color" content="#ff174f">
+  <meta name="keywords"
+        content="NOOBOFFFX, Free Fire, Free Fire gaming, gaming clips, Free Fire highlights, gaming creator, TikTok gamer, YouTube gamer">
+
+  <meta name="theme-color" content="#ff0080">
 
   <style>
 
@@ -21,46 +25,61 @@
       scroll-behavior: smooth;
     }
 
+    :root {
+      --pink: #ff0080;
+      --purple: #8a2be2;
+      --blue: #00d9ff;
+      --dark: #050505;
+      --dark2: #0c0c0c;
+      --card: #111111;
+      --text: #ffffff;
+      --muted: #aaaaaa;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #050505;
-      color: white;
+      background:
+        radial-gradient(circle at top left, rgba(255,0,128,.12), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(0,217,255,.08), transparent 30%),
+        var(--dark);
+      color: var(--text);
       overflow-x: hidden;
     }
 
-    /* ================= NAVBAR ================= */
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     nav {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 70px;
+      z-index: 999;
 
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
 
-      padding: 0 5%;
+      padding: 18px 7%;
 
-      background: rgba(0,0,0,0.92);
-      border-bottom: 1px solid rgba(255,23,79,0.55);
+      background: rgba(5,5,5,.82);
+      backdrop-filter: blur(15px);
 
-      backdrop-filter: blur(10px);
-
-      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
     .logo {
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 900;
-      color: #ff174f;
+      letter-spacing: 2px;
+
+      color: white;
+      text-decoration: none;
 
       text-shadow:
-        0 0 8px #ff174f,
-        0 0 20px #ff174f;
-
-      letter-spacing: 1px;
+        0 0 10px var(--pink),
+        0 0 25px var(--pink);
     }
 
     .nav-links {
@@ -70,27 +89,28 @@
     }
 
     .nav-links a {
-      color: white;
+      color: #ddd;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
+      font-size: 14px;
+      font-weight: 700;
+
+      transition: .3s;
     }
 
     .nav-links a:hover {
-      color: #ff174f;
-
-      text-shadow:
-        0 0 10px #ff174f;
+      color: var(--pink);
+      text-shadow: 0 0 10px var(--pink);
     }
 
-    .menu {
+    .menu-btn {
       display: none;
       font-size: 28px;
-      color: #ff174f;
       cursor: pointer;
     }
 
-    /* ================= HERO ================= */
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       min-height: 100vh;
@@ -101,78 +121,121 @@
 
       text-align: center;
 
-      padding: 110px 20px 60px;
+      padding: 120px 7% 70px;
 
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(255,23,79,0.14),
-          transparent 42%
-        ),
-        linear-gradient(#070707,#030303);
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      background: var(--pink);
+
+      filter: blur(180px);
+      opacity: .12;
+
+      border-radius: 50%;
+
+      animation: pulse 5s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from {
+        transform: scale(.8);
+      }
+
+      to {
+        transform: scale(1.2);
+      }
     }
 
     .hero-content {
-      max-width: 1000px;
+      position: relative;
+      z-index: 2;
+
+      max-width: 900px;
+    }
+
+    .small-title {
+      color: var(--blue);
+
+      font-size: 14px;
+      font-weight: 800;
+
+      letter-spacing: 4px;
+
+      margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: clamp(55px,12vw,150px);
+      font-size: clamp(50px, 11vw, 120px);
 
-      color: #ff174f;
+      font-weight: 1000;
 
-      letter-spacing: 7px;
+      letter-spacing: 5px;
+
+      line-height: .95;
+
+      color: white;
 
       text-shadow:
-        0 0 10px #ff174f,
-        0 0 30px #ff174f,
-        0 0 70px rgba(255,23,79,0.8);
+        0 0 8px var(--pink),
+        0 0 20px var(--pink),
+        0 0 45px rgba(255,0,128,.5);
 
-      animation: glow 2s infinite alternate;
+      animation: logoGlow 3s infinite alternate;
     }
 
-    @keyframes glow {
-
+    @keyframes logoGlow {
       from {
         text-shadow:
-          0 0 10px #ff174f,
-          0 0 25px #ff174f;
+          0 0 8px var(--pink),
+          0 0 20px var(--pink);
       }
 
       to {
         text-shadow:
-          0 0 20px #ff174f,
-          0 0 50px #ff174f,
-          0 0 90px rgba(255,23,79,0.8);
+          0 0 15px var(--pink),
+          0 0 40px var(--pink),
+          0 0 80px rgba(255,0,128,.5);
       }
-
     }
 
     .hero h2 {
-      margin-top: 15px;
+      margin-top: 25px;
 
-      font-size: 29px;
+      font-size: clamp(22px, 4vw, 40px);
 
-      letter-spacing: 7px;
+      color: #eee;
     }
 
     .hero p {
-      margin: 25px 0;
+      margin: 20px auto;
 
-      color: #c9c9c9;
+      color: var(--muted);
 
-      font-size: 18px;
+      max-width: 650px;
 
-      letter-spacing: 2px;
+      line-height: 1.7;
     }
 
-    /* ================= BUTTONS ================= */
+    /* =========================
+       BUTTONS
+    ========================= */
 
     .buttons {
       display: flex;
+
       justify-content: center;
-      gap: 15px;
+
       flex-wrap: wrap;
+
+      gap: 14px;
 
       margin-top: 30px;
     }
@@ -180,45 +243,80 @@
     .btn {
       display: inline-block;
 
-      padding: 15px 28px;
+      padding: 14px 23px;
 
-      border-radius: 7px;
+      border-radius: 8px;
 
       text-decoration: none;
 
-      font-weight: bold;
+      font-weight: 800;
 
-      transition: 0.3s;
+      font-size: 14px;
 
-      border: 1px solid #ff174f;
+      transition: .3s;
+
+      cursor: pointer;
     }
 
     .btn-primary {
-      background: #ff174f;
       color: white;
 
+      background: linear-gradient(
+        135deg,
+        var(--pink),
+        var(--purple)
+      );
+
       box-shadow:
-        0 0 20px rgba(255,23,79,0.5);
+        0 0 20px rgba(255,0,128,.3);
     }
 
     .btn-primary:hover {
-      transform: translateY(-4px);
+      transform: translateY(-4px) scale(1.03);
 
       box-shadow:
-        0 0 35px rgba(255,23,79,0.9);
+        0 0 35px rgba(255,0,128,.6);
     }
 
-    .btn-secondary {
+    .btn-youtube {
+      background: linear-gradient(
+        135deg,
+        #ff0000,
+        #b00000
+      );
+
       color: white;
-      background: transparent;
+
+      box-shadow:
+        0 0 20px rgba(255,0,0,.25);
     }
 
-    .btn-secondary:hover {
-      background: #ff174f;
+    .btn-youtube:hover {
+      transform: translateY(-4px) scale(1.03);
+
+      box-shadow:
+        0 0 35px rgba(255,0,0,.55);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.2);
+
+      color: white;
+
+      background: rgba(255,255,255,.03);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--blue);
+
+      color: var(--blue);
+
       transform: translateY(-4px);
     }
 
-    /* ================= GENERAL SECTIONS ================= */
+    /* =========================
+       SECTIONS
+    ========================= */
 
     section {
       padding: 90px 7%;
@@ -226,101 +324,177 @@
 
     .section-title {
       text-align: center;
-      margin-bottom: 50px;
+
+      margin-bottom: 45px;
+    }
+
+    .section-title span {
+      color: var(--pink);
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      letter-spacing: 4px;
     }
 
     .section-title h2 {
-      font-size: 42px;
+      font-size: clamp(30px, 5vw, 55px);
 
-      color: #ff174f;
-
-      text-shadow:
-        0 0 15px rgba(255,23,79,0.7);
+      margin-top: 10px;
     }
 
     .section-title p {
-      margin-top: 10px;
-      color: #999;
+      color: var(--muted);
+
+      max-width: 650px;
+
+      margin: 15px auto;
+
+      line-height: 1.7;
     }
 
-    /* ================= STATS ================= */
+    /* =========================
+       STATS
+    ========================= */
 
     .stats {
-      max-width: 1100px;
-      margin: auto;
-
       display: grid;
 
       grid-template-columns:
-        repeat(4,1fr);
+        repeat(3, 1fr);
 
-      gap: 20px;
+      gap: 18px;
+
+      max-width: 900px;
+
+      margin: 20px auto 0;
     }
 
     .stat {
-      padding: 30px 15px;
+      background: rgba(255,255,255,.04);
+
+      border: 1px solid rgba(255,255,255,.08);
+
+      padding: 28px;
 
       text-align: center;
 
-      background: #0d0d0d;
+      border-radius: 14px;
 
-      border:
-        1px solid #242424;
-
-      border-radius: 12px;
-
-      transition: 0.3s;
+      transition: .3s;
     }
 
     .stat:hover {
       transform: translateY(-5px);
 
-      border-color: #ff174f;
+      border-color: var(--pink);
 
       box-shadow:
-        0 0 25px rgba(255,23,79,0.25);
+        0 0 25px rgba(255,0,128,.15);
     }
 
     .stat h3 {
-      color: #ff174f;
       font-size: 32px;
+
+      color: var(--pink);
     }
 
     .stat p {
       color: #aaa;
-      margin-top: 8px;
+
+      margin-top: 7px;
     }
 
-    /* ================= CARDS ================= */
+    /* =========================
+       FREE FIRE
+    ========================= */
 
-    .cards {
-      max-width: 1200px;
+    .ff-box {
+      max-width: 1100px;
+
       margin: auto;
 
-      display: grid;
+      padding: 45px;
 
-      grid-template-columns:
-        repeat(3,1fr);
+      border-radius: 20px;
 
-      gap: 25px;
-    }
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,0,128,.08),
+          rgba(0,217,255,.04)
+        );
 
-    .card {
+      border: 1px solid rgba(255,255,255,.1);
+
       position: relative;
 
       overflow: hidden;
+    }
+
+    .ff-box::after {
+      content: "FREE FIRE";
+
+      position: absolute;
+
+      right: -30px;
+      bottom: -35px;
+
+      font-size: 100px;
+
+      font-weight: 1000;
+
+      color: rgba(255,255,255,.025);
+
+      transform: rotate(-10deg);
+    }
+
+    .ff-box h3 {
+      font-size: 38px;
+
+      margin-bottom: 15px;
+    }
+
+    .ff-box p {
+      color: var(--muted);
+
+      line-height: 1.8;
+
+      max-width: 700px;
+    }
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .cards {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 20px;
+
+      max-width: 1150px;
+
+      margin: auto;
+    }
+
+    .card {
+      background: var(--card);
+
+      border: 1px solid rgba(255,255,255,.08);
+
+      border-radius: 16px;
 
       padding: 30px;
 
-      background:
-        linear-gradient(145deg,#111,#070707);
+      transition: .35s;
 
-      border:
-        1px solid #242424;
+      position: relative;
 
-      border-radius: 15px;
-
-      transition: 0.3s;
+      overflow: hidden;
     }
 
     .card::before {
@@ -328,130 +502,51 @@
 
       position: absolute;
 
-      top: 0;
-      left: -100%;
+      width: 100px;
+      height: 100px;
 
-      width: 100%;
-      height: 3px;
+      background: var(--pink);
 
-      background: #ff174f;
+      filter: blur(80px);
 
-      box-shadow:
-        0 0 15px #ff174f;
+      opacity: .08;
 
-      transition: 0.5s;
-    }
-
-    .card:hover::before {
-      left: 0;
+      top: -40px;
+      right: -40px;
     }
 
     .card:hover {
       transform: translateY(-8px);
 
-      border-color: #ff174f;
+      border-color: rgba(255,0,128,.5);
 
       box-shadow:
-        0 10px 35px rgba(255,23,79,0.2);
+        0 15px 40px rgba(0,0,0,.4);
     }
 
     .card-icon {
-      font-size: 45px;
-      margin-bottom: 15px;
+      font-size: 38px;
+
+      margin-bottom: 20px;
     }
 
     .card h3 {
-      font-size: 23px;
+      font-size: 22px;
+
       margin-bottom: 12px;
     }
 
     .card p {
-      color: #aaa;
+      color: var(--muted);
+
       line-height: 1.7;
-    }
 
-    .card-link {
-      display: inline-block;
-
-      margin-top: 20px;
-
-      color: #ff174f;
-
-      text-decoration: none;
-
-      font-weight: bold;
-    }
-
-    /* ================= FREE FIRE ================= */
-
-    .freefire {
-      background:
-        radial-gradient(
-          circle at 50% 30%,
-          rgba(255,23,79,0.08),
-          transparent 45%
-        ),
-        #070707;
-    }
-
-    .ff-box {
-      max-width: 1000px;
-
-      margin: auto;
-
-      padding: 50px;
-
-      text-align: center;
-
-      background: #0c0c0c;
-
-      border:
-        1px solid #292929;
-
-      border-radius: 20px;
-    }
-
-    .ff-box h3 {
-      font-size: 35px;
       margin-bottom: 20px;
     }
 
-    .ff-box p {
-      max-width: 780px;
-
-      margin: auto;
-
-      color: #aaa;
-
-      line-height: 1.8;
-    }
-
-    /* ================= CLIPS ================= */
-
-    .clip-placeholder {
-      min-height: 210px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      text-align: center;
-
-      padding: 30px;
-
-      border:
-        1px dashed #444;
-
-      border-radius: 15px;
-
-      background: #090909;
-
-      color: #888;
-    }
-
-    /* ================= SHOP ================= */
+    /* =========================
+       SHOP
+    ========================= */
 
     .shop-card {
       text-align: center;
@@ -460,232 +555,227 @@
     .coming {
       display: inline-block;
 
-      margin-top: 20px;
-
-      padding: 8px 15px;
-
-      border:
-        1px solid #ff174f;
+      padding: 7px 12px;
 
       border-radius: 20px;
 
-      color: #ff174f;
+      background: rgba(255,0,128,.1);
 
-      font-size: 13px;
+      color: var(--pink);
 
-      font-weight: bold;
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
     }
 
-    /* ================= BUSINESS ================= */
+    /* =========================
+       CONTACT
+    ========================= */
 
-    .contact {
-      max-width: 850px;
+    .contact-box {
+      max-width: 900px;
 
       margin: auto;
 
-      padding: 55px 25px;
-
       text-align: center;
 
-      background: #0d0d0d;
-
-      border:
-        1px solid #252525;
+      padding: 50px 25px;
 
       border-radius: 20px;
-    }
 
-    .contact h2 {
-      color: #ff174f;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,0,128,.08),
+          rgba(138,43,226,.06)
+        );
 
-      font-size: 38px;
-
-      margin-bottom: 15px;
-    }
-
-    .contact p {
-      color: #aaa;
-
-      line-height: 1.7;
-
-      margin-bottom: 25px;
+      border: 1px solid rgba(255,255,255,.1);
     }
 
     .email {
-      display: block;
+      display: inline-block;
 
-      margin-bottom: 25px;
-
-      color: white;
+      color: var(--blue);
 
       text-decoration: none;
 
-      word-break: break-word;
+      font-weight: 700;
+
+      margin: 20px 0;
     }
 
     .email:hover {
-      color: #ff174f;
+      text-decoration: underline;
     }
 
-    /* ================= FOOTER ================= */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      padding: 35px 20px;
+      padding: 45px 7%;
 
       text-align: center;
 
-      background: #020202;
+      border-top: 1px solid rgba(255,255,255,.08);
 
-      border-top:
-        1px solid #222;
-    }
-
-    footer .logo {
-      margin-bottom: 10px;
-    }
-
-    footer p {
       color: #777;
-
-      font-size: 14px;
     }
 
-    /* ================= TOP BUTTON ================= */
+    footer strong {
+      color: white;
+    }
+
+    .footer-links {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 20px;
+
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      color: #aaa;
+
+      text-decoration: none;
+
+      transition: .3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--pink);
+    }
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
 
     #topBtn {
       position: fixed;
 
-      right: 25px;
       bottom: 25px;
+      right: 25px;
 
       width: 45px;
       height: 45px;
 
-      display: none;
-
-      border:
-        1px solid #ff174f;
+      border: none;
 
       border-radius: 50%;
 
-      background: #090909;
+      background: var(--pink);
 
-      color: #ff174f;
-
-      cursor: pointer;
+      color: white;
 
       font-size: 20px;
 
-      box-shadow:
-        0 0 15px rgba(255,23,79,0.5);
+      cursor: pointer;
 
-      z-index: 999;
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition: .3s;
+
+      z-index: 1000;
+
+      box-shadow:
+        0 0 20px rgba(255,0,128,.5);
     }
 
-    /* ================= MOBILE ================= */
+    #topBtn.show {
+      opacity: 1;
 
-    @media(max-width:850px) {
+      pointer-events: auto;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width: 800px) {
+
+      nav {
+        padding: 16px 5%;
+      }
 
       .nav-links {
         position: absolute;
 
         top: 70px;
-        right: 0;
+
+        left: 0;
 
         width: 100%;
 
-        display: none;
+        background: rgba(5,5,5,.97);
 
         flex-direction: column;
 
-        gap: 0;
+        align-items: center;
 
-        text-align: center;
+        padding: 25px;
 
-        background: #050505;
+        gap: 22px;
 
-        border-bottom:
-          1px solid #ff174f;
+        transform: translateY(-150%);
+
+        transition: .35s;
       }
 
       .nav-links.active {
-        display: flex;
+        transform: translateY(0);
       }
 
-      .nav-links li {
-        padding: 18px;
-
-        border-bottom:
-          1px solid #151515;
-      }
-
-      .menu {
+      .menu-btn {
         display: block;
-      }
-
-      .stats {
-        grid-template-columns:
-          repeat(2,1fr);
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h2 {
-        font-size: 21px;
-        letter-spacing: 4px;
-      }
-
-      .hero p {
-        font-size: 14px;
       }
 
       section {
         padding: 70px 5%;
       }
 
+      .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
       .ff-box {
-        padding: 35px 20px;
+        padding: 30px 22px;
       }
 
-    }
-
-    @media(max-width:500px) {
-
-      .logo {
-        font-size: 21px;
-      }
-
-      .hero h1 {
-        font-size: 52px;
-        letter-spacing: 3px;
-      }
-
-      .hero h2 {
-        font-size: 18px;
-      }
-
-      .hero p {
-        font-size: 13px;
-      }
-
-      .section-title h2 {
-        font-size: 32px;
-      }
-
-      .stat {
-        padding: 20px 10px;
-      }
-
-      .stat h3 {
-        font-size: 25px;
-      }
-
-      .contact h2 {
+      .ff-box h3 {
         font-size: 30px;
       }
 
+      .buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+      }
+
+      .btn {
+        text-align: center;
+      }
+
+      .hero h1 {
+        letter-spacing: 2px;
+      }
     }
 
   </style>
@@ -693,639 +783,720 @@
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
-<nav>
+  <nav>
 
-  <div class="logo">
-    NOOBOFFFX
-  </div>
-
-  <div class="menu" onclick="toggleMenu()">
-    ☰
-  </div>
-
-  <ul class="nav-links" id="navLinks">
-
-    <li>
-      <a href="#home" onclick="closeMenu()">Home</a>
-    </li>
-
-    <li>
-      <a href="#freefire" onclick="closeMenu()">Free Fire</a>
-    </li>
-
-    <li>
-      <a href="#clips" onclick="closeMenu()">Clips</a>
-    </li>
-
-    <li>
-      <a href="#guides" onclick="closeMenu()">Guides</a>
-    </li>
-
-    <li>
-      <a href="#shop" onclick="closeMenu()">Shop</a>
-    </li>
-
-    <li>
-      <a href="#about" onclick="closeMenu()">About</a>
-    </li>
-
-  </ul>
-
-</nav>
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero" id="home">
-
-  <div class="hero-content">
-
-    <h1>NOOBOFFFX</h1>
-
-    <h2>FREE FIRE CREATOR</h2>
-
-    <p>
-      GAMING • CLIPS • HIGHLIGHTS • RANKED GRIND
-    </p>
-
-    <div class="buttons">
-
-      <a
-        href="https://www.tiktok.com/@noobofffx"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn-primary"
-      >
-        FOLLOW @NOOBOFFFX
-      </a>
-
-      <a
-        href="#clips"
-        class="btn btn-secondary"
-      >
-        WATCH CONTENT
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= CREATOR STATS ================= -->
-
-<section>
-
-  <div class="section-title">
-
-    <h2>THE GRIND</h2>
-
-    <p>
-      Building NOOBOFFFX one game at a time.
-    </p>
-
-  </div>
-
-  <div class="stats">
-
-    <div class="stat">
-      <h3>FF</h3>
-      <p>FREE FIRE</p>
-    </div>
-
-    <div class="stat">
-      <h3>24/7</h3>
-      <p>GRIND</p>
-    </div>
-
-    <div class="stat">
-      <h3>HD</h3>
-      <p>CLIPS</p>
-    </div>
-
-    <div class="stat">
-      <h3>FFX</h3>
-      <p>CREATOR</p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= FREE FIRE ================= -->
-
-<section class="freefire" id="freefire">
-
-  <div class="section-title">
-
-    <h2>🔥 FREE FIRE</h2>
-
-    <p>
-      Welcome to the NOOBOFFFX gaming hub.
-    </p>
-
-  </div>
-
-  <div class="ff-box">
-
-    <h3>
-      THE BATTLE STARTS HERE
-    </h3>
-
-    <p>
-      NOOBOFFFX is a gaming creator brand focused on
-      Free Fire gameplay, clips, highlights, ranked
-      content, guides and entertainment.
-      Follow the journey and stay connected with the
-      latest content.
-    </p>
-
-    <div class="buttons">
-
-      <a
-        href="https://www.tiktok.com/@noobofffx"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn-primary"
-      >
-        FOLLOW ON TIKTOK
-      </a>
-
-      <a
-        href="#guides"
-        class="btn btn-secondary"
-      >
-        EXPLORE GUIDES
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= CLIPS ================= -->
-
-<section id="clips">
-
-  <div class="section-title">
-
-    <h2>🎬 LATEST CLIPS</h2>
-
-    <p>
-      Your best Free Fire moments belong here.
-    </p>
-
-  </div>
-
-  <div class="cards">
-
-    <div class="card">
-
-      <div class="card-icon">
-        🎯
-      </div>
-
-      <h3>
-        Free Fire Highlights
-      </h3>
-
-      <p>
-        Showcase your best matches, clutch
-        moments and memorable gameplay.
-      </p>
-
-      <a
-        href="https://www.tiktok.com/@noobofffx"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="card-link"
-      >
-        WATCH ON TIKTOK →
-      </a>
-
-    </div>
-
-
-    <div class="card">
-
-      <div class="card-icon">
-        ⚡
-      </div>
-
-      <h3>
-        Short Videos
-      </h3>
-
-      <p>
-        Keep up with the latest short-form
-        gaming content from NOOBOFFFX.
-      </p>
-
-      <a
-        href="https://www.tiktok.com/@noobofffx"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="card-link"
-      >
-        VIEW @NOOBOFFFX →
-      </a>
-
-    </div>
-
-
-    <div class="card">
-
-      <div class="card-icon">
-        🏆
-      </div>
-
-      <h3>
-        Ranked Grind
-      </h3>
-
-      <p>
-        Follow the ranked journey and discover
-        future gameplay highlights.
-      </p>
-
-      <a
-        href="#freefire"
-        class="card-link"
-      >
-        FOLLOW THE GRIND →
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= GUIDES ================= -->
-
-<section id="guides">
-
-  <div class="section-title">
-
-    <h2>🎯 FREE FIRE GUIDES</h2>
-
-    <p>
-      Useful gaming content that keeps players coming back.
-    </p>
-
-  </div>
-
-  <div class="cards">
-
-    <div class="card">
-
-      <div class="card-icon">
-        ⚙️
-      </div>
-
-      <h3>
-        Sensitivity
-      </h3>
-
-      <p>
-        Find NOOBOFFFX sensitivity settings and
-        future device-specific configurations.
-      </p>
-
-      <a
-        href="#"
-        onclick="comingSoon(event)"
-        class="card-link"
-      >
-        SENSITIVITY →
-      </a>
-
-    </div>
-
-
-    <div class="card">
-
-      <div class="card-icon">
-        🎯
-      </div>
-
-      <h3>
-        Aim Tips
-      </h3>
-
-      <p>
-        Original tips and techniques designed
-        to help players improve their gameplay.
-      </p>
-
-      <a
-        href="#"
-        onclick="comingSoon(event)"
-        class="card-link"
-      >
-        AIM GUIDE →
-      </a>
-
-    </div>
-
-
-    <div class="card">
-
-      <div class="card-icon">
-        🏅
-      </div>
-
-      <h3>
-        Ranked Tips
-      </h3>
-
-      <p>
-        Strategies, lessons and gameplay ideas
-        from the NOOBOFFFX ranked journey.
-      </p>
-
-      <a
-        href="#"
-        onclick="comingSoon(event)"
-        class="card-link"
-      >
-        RANKED GUIDE →
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= SHOP ================= -->
-
-<section class="freefire" id="shop">
-
-  <div class="section-title">
-
-    <h2>🛍️ NOOBOFFFX SHOP</h2>
-
-    <p>
-      Original creator resources coming in the future.
-    </p>
-
-  </div>
-
-  <div class="cards">
-
-    <div class="card">
-
-      <div class="card-icon">
-        🎨
-      </div>
-
-      <h3>
-        Gaming Wallpapers
-      </h3>
-
-      <p>
-        Original NOOBOFFFX wallpapers and
-        gaming graphics.
-      </p>
-
-      <span class="coming">
-        COMING SOON
-      </span>
-
-    </div>
-
-
-    <div class="card">
-
-      <div class="card-icon">
-        🎬
-      </div>
-
-      <h3>
-        Editing Resources
-      </h3>
-
-      <p>
-        Original creator resources for gaming
-        video editors.
-      </p>
-
-      <span class="coming">
-        COMING SOON
-      </span>
-
-    </div>
-
-
-    <div class="card">
-
-      <div class="card-icon">
-        📘
-      </div>
-
-      <h3>
-        Gaming Guides
-      </h3>
-
-      <p>
-        Original gaming guides and educational
-        creator content.
-      </p>
-
-      <span class="coming">
-        COMING SOON
-      </span>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section id="about">
-
-  <div class="section-title">
-
-    <h2>ABOUT NOOBOFFFX</h2>
-
-    <p>
-      The creator behind the content.
-    </p>
-
-  </div>
-
-  <div class="ff-box">
-
-    <h3>
-      🎮 GAMING • CONTENT • COMMUNITY
-    </h3>
-
-    <p>
-      NOOBOFFFX is a gaming creator brand focused
-      on Free Fire content, clips, highlights,
-      guides and entertainment.
-
-      The goal is to build a strong gaming community
-      while creating original content that players
-      actually enjoy.
-    </p>
-
-    <div class="buttons">
-
-      <a
-        href="https://www.tiktok.com/@noobofffx"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn-primary"
-      >
-        FOLLOW @NOOBOFFFX
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= BUSINESS / SPONSOR ================= -->
-
-<section>
-
-  <div class="contact">
-
-    <h2>
-      🤝 WORK WITH NOOBOFFFX
-    </h2>
-
-    <p>
-      For legitimate gaming collaborations,
-      creator opportunities and future business
-      enquiries, contact NOOBOFFFX by email.
-    </p>
-
-    <a
-      href="mailto:erovwoserehachikaruefetobore@gmail.com"
-      class="email"
-    >
-      erovwoserehachikaruefetobore@gmail.com
+    <a href="#home" class="logo">
+      NOOBOFFFX
     </a>
 
-    <div class="buttons">
+    <div class="menu-btn" onclick="toggleMenu()">
+      ☰
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+
+      <li>
+        <a href="#home">HOME</a>
+      </li>
+
+      <li>
+        <a href="#freefire">FREE FIRE</a>
+      </li>
+
+      <li>
+        <a href="#clips">CLIPS</a>
+      </li>
+
+      <li>
+        <a href="#guides">GUIDES</a>
+      </li>
+
+      <li>
+        <a href="#shop">SHOP</a>
+      </li>
+
+      <li>
+        <a href="#about">ABOUT</a>
+      </li>
+
+    </ul>
+
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <div class="small-title">
+        FREE FIRE CREATOR
+      </div>
+
+      <h1>
+        NOOBOFFFX
+      </h1>
+
+      <h2>
+        GAMING • CLIPS • HIGHLIGHTS • RANKED GRIND
+      </h2>
+
+      <p>
+        Welcome to the official NOOBOFFFX gaming hub.
+        Discover Free Fire gameplay, clips, highlights,
+        guides and future gaming content.
+      </p>
+
+      <div class="buttons">
+
+        <!-- TIKTOK -->
+
+        <a
+          href="https://www.tiktok.com/@noobofffx"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          🎵 FOLLOW @NOOBOFFFX
+        </a>
+
+
+        <!-- YOUTUBE -->
+
+        <a
+          href="https://www.youtube.com/channel/UCzXy_9fqhIC_8Ob-WWwVYbQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-youtube"
+        >
+          ▶ WATCH ON YOUTUBE
+        </a>
+
+
+        <a
+          href="#clips"
+          class="btn btn-outline"
+        >
+          🎮 EXPLORE CONTENT
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       STATS
+  ========================= -->
+
+  <section>
+
+    <div class="section-title">
+
+      <span>CREATOR HUB</span>
+
+      <h2>NOOBOFFFX</h2>
+
+      <p>
+        One place for the latest gaming content,
+        social links and future projects.
+      </p>
+
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <h3>🎮</h3>
+        <p>Free Fire</p>
+      </div>
+
+      <div class="stat">
+        <h3>📱</h3>
+        <p>TikTok Creator</p>
+      </div>
+
+      <div class="stat">
+        <h3>▶</h3>
+        <p>YouTube Creator</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FREE FIRE
+  ========================= -->
+
+  <section id="freefire">
+
+    <div class="section-title">
+
+      <span>MAIN GAME</span>
+
+      <h2>FREE FIRE</h2>
+
+      <p>
+        Gameplay, ranked grinding, highlights,
+        tips and gaming content.
+      </p>
+
+    </div>
+
+    <div class="ff-box">
+
+      <h3>
+        🔥 THE NOOBOFFFX BATTLE ZONE
+      </h3>
+
+      <p>
+        Follow the journey through Free Fire.
+        From ranked matches and clutch moments
+        to entertaining clips and future challenges,
+        this is where the gaming journey lives.
+      </p>
+
+      <div class="buttons">
+
+        <a
+          href="https://www.tiktok.com/@noobofffx"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          FOLLOW ON TIKTOK
+        </a>
+
+        <a
+          href="https://www.youtube.com/channel/UCzXy_9fqhIC_8Ob-WWwVYbQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-youtube"
+        >
+          ▶ YOUTUBE CHANNEL
+        </a>
+
+        <a
+          href="#guides"
+          class="btn btn-outline"
+        >
+          EXPLORE GUIDES
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CLIPS
+  ========================= -->
+
+  <section id="clips">
+
+    <div class="section-title">
+
+      <span>CONTENT</span>
+
+      <h2>CLIPS & HIGHLIGHTS</h2>
+
+      <p>
+        The best moments from the NOOBOFFFX gaming journey.
+      </p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="card-icon">
+          🎯
+        </div>
+
+        <h3>Headshot Moments</h3>
+
+        <p>
+          Fast Free Fire gameplay and satisfying
+          highlight moments.
+        </p>
+
+        <a
+          href="https://www.tiktok.com/@noobofffx"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          WATCH ON TIKTOK
+        </a>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          ⚡
+        </div>
+
+        <h3>Clutch Plays</h3>
+
+        <p>
+          Watch the action and follow the latest
+          gaming clips.
+        </p>
+
+        <a
+          href="https://www.youtube.com/channel/UCzXy_9fqhIC_8Ob-WWwVYbQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-youtube"
+        >
+          WATCH ON YOUTUBE
+        </a>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          🏆
+        </div>
+
+        <h3>Ranked Grind</h3>
+
+        <p>
+          Follow the journey through ranked matches
+          and future gaming challenges.
+        </p>
+
+        <a
+          href="https://www.tiktok.com/@noobofffx"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-outline"
+        >
+          VIEW @NOOBOFFFX
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       GUIDES
+  ========================= -->
+
+  <section id="guides">
+
+    <div class="section-title">
+
+      <span>LEARN & IMPROVE</span>
+
+      <h2>GAMING GUIDES</h2>
+
+      <p>
+        Helpful gaming resources that can be expanded
+        as the website grows.
+      </p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="card-icon">
+          🎯
+        </div>
+
+        <h3>Settings & Sensitivity</h3>
+
+        <p>
+          Future guides for improving your gameplay
+          settings and controls.
+        </p>
+
+        <button
+          class="btn btn-outline"
+          onclick="comingSoon()"
+        >
+          COMING SOON
+        </button>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          🧠
+        </div>
+
+        <h3>Gameplay Tips</h3>
+
+        <p>
+          Strategy and gameplay tips can be added here
+          as new content is created.
+        </p>
+
+        <button
+          class="btn btn-outline"
+          onclick="comingSoon()"
+        >
+          COMING SOON
+        </button>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          🏆
+        </div>
+
+        <h3>Ranked Tips</h3>
+
+        <p>
+          Future ranked strategies, challenges and
+          gaming resources.
+        </p>
+
+        <button
+          class="btn btn-outline"
+          onclick="comingSoon()"
+        >
+          COMING SOON
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SHOP
+  ========================= -->
+
+  <section id="shop">
+
+    <div class="section-title">
+
+      <span>FUTURE STORE</span>
+
+      <h2>NOOBOFFFX SHOP</h2>
+
+      <p>
+        A future home for original digital products
+        and creator resources.
+      </p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card shop-card">
+
+        <div class="card-icon">
+          🖼️
+        </div>
+
+        <h3>Gaming Wallpapers</h3>
+
+        <p>
+          Original gaming wallpapers and creator
+          graphics.
+        </p>
+
+        <span class="coming">
+          COMING SOON
+        </span>
+
+      </div>
+
+
+      <div class="card shop-card">
+
+        <div class="card-icon">
+          🎬
+        </div>
+
+        <h3>Editing Resources</h3>
+
+        <p>
+          Future original editing resources for
+          gaming creators.
+        </p>
+
+        <span class="coming">
+          COMING SOON
+        </span>
+
+      </div>
+
+
+      <div class="card shop-card">
+
+        <div class="card-icon">
+          📚
+        </div>
+
+        <h3>Gaming Guides</h3>
+
+        <p>
+          Future downloadable gaming guides and
+          creator resources.
+        </p>
+
+        <span class="coming">
+          COMING SOON
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
+  <section id="about">
+
+    <div class="section-title">
+
+      <span>ABOUT THE CREATOR</span>
+
+      <h2>WHO IS NOOBOFFFX?</h2>
+
+      <p>
+        NOOBOFFFX is a gaming creator brand focused
+        on Free Fire content, entertaining clips,
+        highlights and creator projects.
+      </p>
+
+    </div>
+
+    <div class="contact-box">
+
+      <h2>
+        🎮 FOLLOW THE JOURNEY
+      </h2>
+
+      <p style="color:#aaa; margin-top:15px;">
+        Stay connected across TikTok and YouTube
+        for new gaming content.
+      </p>
+
+      <div class="buttons">
+
+        <a
+          href="https://www.tiktok.com/@noobofffx"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          🎵 TIKTOK
+        </a>
+
+        <a
+          href="https://www.youtube.com/channel/UCzXy_9fqhIC_8Ob-WWwVYbQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-youtube"
+        >
+          ▶ YOUTUBE
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       BUSINESS / SPONSORSHIP
+  ========================= -->
+
+  <section>
+
+    <div class="contact-box">
+
+      <div class="section-title"
+           style="margin-bottom:10px;">
+
+        <span>BUSINESS</span>
+
+        <h2>
+          WORK WITH NOOBOFFFX
+        </h2>
+
+      </div>
+
+      <p style="color:#aaa; line-height:1.7;">
+        For legitimate creator collaborations,
+        business enquiries and future sponsorship
+        opportunities, contact NOOBOFFFX.
+      </p>
 
       <a
-        href="mailto:erovwoserehachikaruefetobore@gmail.com?subject=NOOBOFFFX%20Business%20Enquiry"
-        class="btn btn-primary"
+        href="mailto:erovwoserehachikaruefetobore@gmail.com"
+        class="email"
       >
-        CONTACT NOOBOFFFX
+        erovwoserehachikaruefetobore@gmail.com
+      </a>
+
+      <div class="buttons">
+
+        <a
+          href="mailto:erovwoserehachikaruefetobore@gmail.com?subject=NOOBOFFFX%20Business%20Enquiry"
+          class="btn btn-primary"
+        >
+          📧 CONTACT NOOBOFFFX
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <p>
+      © 2026 <strong>NOOBOFFFX</strong>.
+      All rights reserved.
+    </p>
+
+    <div class="footer-links">
+
+      <a
+        href="https://www.tiktok.com/@noobofffx"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        TikTok
+      </a>
+
+      <a
+        href="https://www.youtube.com/channel/UCzXy_9fqhIC_8Ob-WWwVYbQ"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        YouTube
+      </a>
+
+      <a href="#home">
+        Back to top
       </a>
 
     </div>
 
-  </div>
+    <p>
+      Gaming • Content • Creativity
+    </p>
 
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-  <div class="logo">
-    NOOBOFFFX
-  </div>
-
-  <p>
-    © 2026 NOOBOFFFX. All rights reserved.
-  </p>
-
-  <p style="margin-top:8px;">
-    Free Fire Creator • Gaming • Clips • Guides
-  </p>
-
-  <p style="margin-top:8px;">
-    TikTok: @noobofffx
-  </p>
-
-</footer>
+  </footer>
 
 
-<!-- ================= BACK TO TOP ================= -->
+  <!-- =========================
+       BACK TO TOP
+  ========================= -->
 
-<button
-  id="topBtn"
-  onclick="window.scrollTo({top:0,behavior:'smooth'})"
->
-  ↑
-</button>
-
-
-<!-- ================= JAVASCRIPT ================= -->
-
-<script>
-
-  function toggleMenu() {
-
-    const nav =
-      document.getElementById("navLinks");
-
-    nav.classList.toggle("active");
-
-  }
+  <button
+    id="topBtn"
+    onclick="window.scrollTo({top:0, behavior:'smooth'})"
+  >
+    ↑
+  </button>
 
 
-  function closeMenu() {
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
 
-    const nav =
-      document.getElementById("navLinks");
+  <script>
 
-    nav.classList.remove("active");
+    function toggleMenu() {
 
-  }
+      const nav =
+        document.getElementById("navLinks");
 
-
-  function comingSoon(event) {
-
-    event.preventDefault();
-
-    alert(
-      "🔥 This NOOBOFFFX feature is coming soon!"
-    );
-
-  }
-
-
-  const topBtn =
-    document.getElementById("topBtn");
-
-
-  window.addEventListener("scroll", function() {
-
-    if (window.scrollY > 500) {
-
-      topBtn.style.display = "block";
-
-    } else {
-
-      topBtn.style.display = "none";
+      nav.classList.toggle("active");
 
     }
 
-  });
 
-</script>
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          document
+            .getElementById("navLinks")
+            .classList.remove("active");
+
+        });
+
+      });
+
+
+    function comingSoon() {
+
+      alert(
+        "This NOOBOFFFX feature is coming soon! 🔥"
+      );
+
+    }
+
+
+    const topBtn =
+      document.getElementById("topBtn");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 500) {
+
+        topBtn.classList.add("show");
+
+      } else {
+
+        topBtn.classList.remove("show");
+
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>
